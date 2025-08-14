@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+:root {
+  /* Borders */
+  --border-1: #e5e7eb; /* light gray border */
+  --border-2: #1447e6; /* primary blue border */
+
+  /* Backgrounds */
+  --background-1: #f9fafb; /* main background (light gray) */
+  --background-1-shade-1: #e3e4e6;
+  --background-2: #ffffff; /* white (cards, sections) */
+  --background-3: #1447e6; /* primary blue */
+  --background-3-hover: #193cb8; /* darker blue hover */
+  --background-alt-1: #464748;
+  --background-alt-2: #000000; /* pure black */
+
+  /* Texts */
+  --foreground: #171717; /* main foreground */
+  --text-1: #1c1c1c; /* main text */
+  --text-1-shade: #4a5565;
+  --text-1-shade-2: #99a1af;
+  --text-1-hover: #2b7fff;
+  --text-2: #3a5ba0; /* secondary text */
+  --text-2-hover: #5c7fc9;
+  --text-muted: #6b7280; /* muted gray text */
+  --text-alt-1: #ffffff; /* white text */
+  --text-alt-1-hover: #f0f0f0; /* softer white text on hover */
+  --text-alt-2: #fefefe; /* soft white for contrast */
+
+  /* Icons */
+  --icon-muted: #9ca3af;
+  --icon-primary: #1447e6;
+
+  /* Buttons */
+  --button: #ffb400; /* gold/yellow button */
+  --button-hover: #e09f00; /* darker yellow */
+}
+
+/* @theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+} */
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+} */
+
+body {
+  background: var(--background-1);
+  color: var(--text-1);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@layer utilities {
+  .animate-spin-slow {
+    animation: spin 20s linear infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+@keyframes scroll-down {
+  0% {
+    transform: translateY(-50%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes scroll-up {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
