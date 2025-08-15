@@ -1,17 +1,21 @@
-// src/app/news_and_events/[slug]/page.jsx
+// src/app/news-and-events/[slug]/page.tsx
 import { notFound } from "next/navigation";
 import { newsevents } from "@/data/newsEvents";
 import Image from "next/image";
 
-export async function generateStaticParams() {
-  return newsevents.map((item) => ({
-    slug: item.slug,
-  }));
+export async function generateStaticParams(): Promise<Array<{ slug: string }>> {
+  return newsevents.map((item) => ({ slug: item.slug }));
 }
 
-export default function NewsEventDetail({ params }) {
-  const item = newsevents.find((n) => n.slug === params.slug);
+// In Next 15, params is a Promise
+export default async function NewsEventDetail({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
 
+  const item = newsevents.find((n) => n.slug === slug);
   if (!item) return notFound();
 
   return (

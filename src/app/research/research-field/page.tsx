@@ -140,7 +140,7 @@ export default function Publications() {
   }, {} as Publications);
 
   const filteredYears = Object.entries(processedData)
-    .filter(([year, data]) => {
+    .filter(([_year, data]) => {
       const hasSelectedType =
         selectedTypes.size === 0 ||
         Array.from(selectedTypes).some((type) => data[type].length > 0);

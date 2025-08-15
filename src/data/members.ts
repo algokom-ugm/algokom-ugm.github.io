@@ -1,5 +1,6 @@
 export interface LabMember {
   name: string;
+  title?: string;         // ← add this (use `title: string` if all members have it)
   rank: string;
   field: string;
   image: string;

@@ -1,29 +1,29 @@
 "use client";
-import { useState, useEffect } from "react";
+
+import { Suspense, useEffect, useState } from "react";
 import Image from "next/image";
 import { publikasiData, penelitiData } from "@/data/ndata";
-import Link from "next/link";
-import { useSearchParams, useRouter, useParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 
-export default function ResearchPage() {
+function RecentResearchContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const { slug } = useParams();
+
   const [activeSection, setActiveSection] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
 
-  // Get selected researcher
+  // Read researcher from query (?researcher=slug)
   const researcherSlugParam = searchParams.get("researcher");
   const selectedResearcher =
     penelitiData.find((r) => r.slug === researcherSlugParam) || penelitiData[0];
 
-  // Process publications data
+  // Prepare publications for the selected researcher
   const filteredResearch = publikasiData
     .filter((pub) => pub.id_peneliti.includes(selectedResearcher.id))
     .sort((a, b) => {
-      const dateA = new Date(a.tahun, a.bulan - 1, a.hari);
-      const dateB = new Date(b.tahun, b.bulan - 1, b.hari);
-      return dateB.getTime() - dateA.getTime();
+      const dateA = new Date(a.tahun, a.bulan - 1, a.hari).getTime();
+      const dateB = new Date(b.tahun, b.bulan - 1, b.hari).getTime();
+      return dateB - dateA;
     })
     .slice(0, 3)
     .map((pub) => ({
@@ -38,18 +38,19 @@ export default function ResearchPage() {
       researcherSlug: selectedResearcher.slug,
     }));
 
+  // Reset state on researcher change
   useEffect(() => {
     setActiveSection(0);
-    window.scrollTo(0, 0);
+    if (typeof window !== "undefined") window.scrollTo(0, 0);
   }, [selectedResearcher.slug]);
 
+  // Track scroll to highlight left nav
   useEffect(() => {
     const handleScroll = () => {
       const sectionHeight = window.innerHeight;
       const newSection = Math.round(window.scrollY / sectionHeight);
       setActiveSection(newSection);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -62,11 +63,12 @@ export default function ResearchPage() {
         </h2>
       </div>
 
-      <div className="fixed md:block z-50 max-w-[15%] ">
+      {/* Left rail: Section dots + researcher selector */}
+      <div className="fixed md:block z-50 max-w-[15%]">
         <div className="flex flex-col gap-3">
           {filteredResearch.map((item, index) => (
             <div
-              key={index}
+              key={item.id}
               className="flex flex-col gap-2 transition-colors duration-300"
               style={{
                 color:
@@ -91,7 +93,8 @@ export default function ResearchPage() {
                 />
                 <h5>0{index + 1}</h5>
               </div>
-              <Link
+              {/* Smooth-scroll to section anchors */}
+              <a
                 href={`#research-${index + 1}`}
                 onClick={(e) => {
                   e.preventDefault();
@@ -109,21 +112,28 @@ export default function ResearchPage() {
                 }}
               >
                 {item.title}
-              </Link>
+              </a>
             </div>
           ))}
         </div>
+
+        {/* Researcher selector (query param) */}
         <div className="relative w-full max-w-md mt-8">
           <select
             className="absolute inset-0 opacity-0 cursor-pointer"
             value={selectedResearcher.slug}
             onChange={(e) =>
-              router.push(`/research/recent-research/${e.target.value}`)
+              router.push(
+                `/research/recent-research?researcher=${encodeURIComponent(
+                  e.target.value
+                )}`
+              )
             }
+            aria-label="Pilih Peneliti"
           >
-            {penelitiData.map((researcher) => (
-              <option key={researcher.slug} value={researcher.slug}>
-                {researcher.nama}
+            {penelitiData.map((r) => (
+              <option key={r.slug} value={r.slug}>
+                {r.nama}
               </option>
             ))}
           </select>
@@ -136,6 +146,8 @@ export default function ResearchPage() {
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="w-full px-6 py-4 text-left flex items-center justify-between group"
+              aria-haspopup="listbox"
+              aria-expanded={isOpen}
             >
               <span className="text-gray-700 font-medium truncate pr-2">
                 {selectedResearcher.nama}
@@ -150,6 +162,7 @@ export default function ResearchPage() {
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
+                  aria-hidden="true"
                 >
                   <path
                     strokeLinecap="round"
@@ -167,30 +180,34 @@ export default function ResearchPage() {
               }`}
             >
               <div className="border-t border-white/20 mx-4"></div>
-              <ul className="px-4 h-[9rem] overflow-y-scroll">
-                {penelitiData.map((researcher) => (
+              <ul className="px-4 h-[9rem] overflow-y-scroll" role="listbox">
+                {penelitiData.map((r) => (
                   <li
-                    key={researcher.slug}
+                    key={r.slug}
                     onClick={() => {
+                      setIsOpen(false);
                       router.push(
-                        `/research/recent-research/${researcher.slug}`
+                        `/research/recent-research?researcher=${encodeURIComponent(
+                          r.slug
+                        )}`
                       );
                     }}
                     className={`h-[3rem] rounded-lg cursor-pointer transition-all flex items-center justify-between
-                  ${
-                    selectedResearcher.slug === researcher.slug
-                      ? "bg-blue-500/10 text-blue-600 font-medium"
-                      : "hover:bg-gray-100/50 text-gray-600 hover:text-gray-900"
-                  }`}
+                    ${
+                      selectedResearcher.slug === r.slug
+                        ? "bg-blue-500/10 text-blue-600 font-medium"
+                        : "hover:bg-gray-100/50 text-gray-600 hover:text-gray-900"
+                    }`}
                     role="option"
-                    aria-selected={selectedResearcher.slug === researcher.slug}
+                    aria-selected={selectedResearcher.slug === r.slug}
                   >
-                    <span>{researcher.nama}</span>
-                    {selectedResearcher.slug === researcher.slug && (
+                    <span>{r.nama}</span>
+                    {selectedResearcher.slug === r.slug && (
                       <svg
                         className="w-5 h-5 text-blue-500"
                         fill="currentColor"
                         viewBox="0 0 20 20"
+                        aria-hidden="true"
                       >
                         <path
                           fillRule="evenodd"
@@ -207,9 +224,10 @@ export default function ResearchPage() {
         </div>
       </div>
 
+      {/* Sections */}
       {filteredResearch.map((item, index) => (
         <section
-          key={index}
+          key={item.id}
           id={`research-${index + 1}`}
           className="flex relative items-center"
           style={{
@@ -226,7 +244,6 @@ export default function ResearchPage() {
               transform: "translateX(-50%)",
             }}
           />
-
           <div className="w-full px-6 py-20 ml-[25%]">
             <div className="max-w-4xl">
               <div className="space-y-8">
@@ -238,6 +255,7 @@ export default function ResearchPage() {
                 <p className="text-lg text-[var(--text-muted)] leading-relaxed">
                   {item.desc}
                 </p>
+
                 <div className="mt-6">
                   <a
                     href={`/research/${item.slug}`}
@@ -246,6 +264,7 @@ export default function ResearchPage() {
                     Selengkapnya
                   </a>
                 </div>
+
                 <div className="group relative rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300">
                   <Image
                     src={item.img}
@@ -263,5 +282,25 @@ export default function ResearchPage() {
         </section>
       ))}
     </div>
+  );
+}
+
+// 👇 The page wraps the client content with Suspense (required by Next 15)
+export default function RecentResearchPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="max-w-7xl mx-auto px-4 py-12">
+          <div className="animate-pulse space-y-4">
+            <div className="h-8 w-64 bg-gray-200 rounded" />
+            <div className="h-4 w-80 bg-gray-200 rounded" />
+            <div className="h-4 w-72 bg-gray-200 rounded" />
+            <div className="h-64 w-full bg-gray-200 rounded" />
+          </div>
+        </div>
+      }
+    >
+      <RecentResearchContent />
+    </Suspense>
   );
 }

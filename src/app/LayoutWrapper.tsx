@@ -5,7 +5,7 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFlask,
-  faFileAlt,
+  // faFileAlt,
   faCaretRight,
   faLayerGroup,
   faUniversity,

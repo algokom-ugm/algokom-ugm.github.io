@@ -145,7 +145,7 @@ export default function Publications() {
     const searchLower = searchQuery.toLowerCase();
 
     return Object.entries(processedData)
-      .filter(([year, data]) => {
+      .filter(([_year, data]) => {
         // Check if year has any matching items
         return Object.entries(data).some(([type, items]) => {
           const typeSelected =
@@ -193,7 +193,7 @@ export default function Publications() {
 
         return [year, filteredCategories] as [string, ProcessedPublication];
       })
-      .filter(([year, data]) =>
+      .filter(([_year, data]) =>
         Object.values(data).some((category) => category.length > 0)
       )
       .sort(([a], [b]) => Number(b) - Number(a));
