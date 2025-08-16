@@ -39,14 +39,14 @@ export const members: LabMember[] = [
     image: "/reza_pulungan.jpg",
     researcherSlug: "reza-pulungan",
   },
-  {
-    name: "Dr. Anny Kartika Sari, S.Si., M.Sc., Ph.D.",
-    rank: "Lektor Kepala",
-    field:
-      "Kriptografi, Ontologi, Knowledge Representation, Information Retrieval",
-    image: "/anny_kartika_sari.jpg",
-    researcherSlug: "anny-kartika-sari",
-  },
+  // {
+  //   name: "Dr. Anny Kartika Sari, S.Si., M.Sc., Ph.D.",
+  //   rank: "Lektor Kepala",
+  //   field:
+  //     "Kriptografi, Ontologi, Knowledge Representation, Information Retrieval",
+  //   image: "/anny_kartika_sari.jpg",
+  //   researcherSlug: "anny-kartika-sari",
+  // },
   {
     name: "Dr. Nur Rokhman, S.Si., M.Kom.",
     rank: "Lektor Kepala",
