@@ -18,9 +18,9 @@ type ProcessedPublication = {
   journalPapers: Array<{
     title: string;
     authors: string;
-    year: number;
-    month: number;
-    day: number;
+    year: number | null;
+    month: number | null;
+    day: number | null;
     doi?: string;
     pdf?: string;
     slug: string;
@@ -28,27 +28,27 @@ type ProcessedPublication = {
   internationalConferences: Array<{
     title: string;
     authors: string;
-    year: number;
-    month: number;
-    day: number;
+    year: number | null;
+    month: number | null;
+    day: number | null;
     pdf?: string;
     slug: string;
   }>;
   doctoralDissertations: Array<{
     title: string;
     authors: string;
-    year: number;
-    month: number;
-    day: number;
+    year: number | null;
+    month: number | null;
+    day: number | null;
     pdf?: string;
     slug: string;
   }>;
   masterTheses: Array<{
     title: string;
     authors: string;
-    year: number;
-    month: number;
-    day: number;
+    year: number | null;
+    month: number | null;
+    day: number | null;
     pdf?: string;
     slug: string;
   }>;
@@ -79,8 +79,27 @@ const monthNames = [
   "Desember",
 ];
 
-const formatDate = (day: number, month: number, year: number) => {
-  return `${day} ${monthNames[month - 1]} ${year}`;
+const formatDate = (
+  day?: number | null,
+  month?: number | null,
+  year?: number | null
+): string => {
+  const parts: string[] = [];
+
+  if (day != null) {
+    parts.push(day.toString());
+  }
+
+  if (month != null && month >= 1 && month <= 12) {
+    parts.push(monthNames[month - 1]);
+  }
+
+  if (year != null) {
+    parts.push(year.toString());
+  }
+
+  // If nothing available, return placeholder
+  return parts.length > 0 ? parts.join(" ") : "Unknown date";
 };
 
 export default function Publications() {
@@ -95,7 +114,8 @@ export default function Publications() {
 
   const processedData = useMemo(() => {
     return publikasiData.reduce((acc, pub) => {
-      const year = pub.tahun.toString();
+      // const year = pub.tahun.toString();
+      const year = pub.tahun ? pub.tahun.toString() : "Unknown";
       const researchersMap = new Map(penelitiData.map((p) => [p.id, p.nama]));
 
       if (!acc[year]) {
@@ -381,9 +401,9 @@ const CategorySection = ({
   items: Array<{
     title: string;
     authors: string;
-    year: number;
-    month: number;
-    day: number;
+    year: number | null;
+    month: number | null;
+    day: number | null;
     doi?: string;
     pdf?: string;
     slug: string;

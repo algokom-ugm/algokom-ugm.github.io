@@ -36,11 +36,19 @@ export default async function ResearchDetail({
 
   if (!item) return notFound();
 
-  const publicationDate = new Date(
-    item.tahun,
-    item.bulan - 1,
-    item.hari
-  ).toLocaleDateString("id-ID", { year: "numeric", month: "long", day: "numeric" });
+  const publicationDate =
+  item.tahun != null
+    ? new Date(
+        item.tahun,
+        (item.bulan ?? 1) - 1, // default to January if null
+        item.hari ?? 1         // default to 1st if null
+      ).toLocaleDateString("id-ID", {
+        year: "numeric",
+        month: item.bulan != null ? "long" : undefined, // only show if available
+        day: item.hari != null ? "numeric" : undefined, // only show if available
+      })
+    : "Tanggal tidak diketahui";
+
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-12">

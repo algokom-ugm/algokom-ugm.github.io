@@ -187,11 +187,18 @@ export default function Home() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-7xl w-full">
           {publikasiData
             .sort((a, b) => {
-              // Sort by year, month, and day (descending)
-              if (b.tahun !== a.tahun) return b.tahun - a.tahun;
-              if (b.bulan !== a.bulan) return b.bulan - a.bulan;
-              return b.hari - a.hari;
-            })
+            // Helper to normalize nulls -> put them at the bottom
+            const safeNum = (val: number | null | undefined) =>
+              val == null ? -Infinity : val;
+
+            if (safeNum(b.tahun) !== safeNum(a.tahun)) {
+              return safeNum(b.tahun) - safeNum(a.tahun);
+            }
+            if (safeNum(b.bulan) !== safeNum(a.bulan)) {
+              return safeNum(b.bulan) - safeNum(a.bulan);
+            }
+            return safeNum(b.hari) - safeNum(a.hari);
+          })
             .slice(0, 3) // Take the top 3 most recent
             .map((item, index) => (
               <div

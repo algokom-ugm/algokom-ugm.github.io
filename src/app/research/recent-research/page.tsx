@@ -21,9 +21,23 @@ function RecentResearchContent() {
   const filteredResearch = publikasiData
     .filter((pub) => pub.id_peneliti.includes(selectedResearcher.id))
     .sort((a, b) => {
-      const dateA = new Date(a.tahun, a.bulan - 1, a.hari).getTime();
-      const dateB = new Date(b.tahun, b.bulan - 1, b.hari).getTime();
-      return dateB - dateA;
+  const dateA = a.tahun
+    ? new Date(
+        a.tahun,
+        (a.bulan ?? 1) - 1, // default to January if bulan is null
+        a.hari ?? 1         // default to 1st if hari is null
+      ).getTime()
+    : Number.NEGATIVE_INFINITY; // put null tahun at the end
+
+  const dateB = b.tahun
+    ? new Date(
+        b.tahun,
+        (b.bulan ?? 1) - 1,
+        b.hari ?? 1
+      ).getTime()
+    : Number.NEGATIVE_INFINITY;
+
+  return dateB - dateA;
     })
     .slice(0, 3)
     .map((pub) => ({
