@@ -5,17 +5,19 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFlask,
-  // faFileAlt,
   faCaretRight,
   faLayerGroup,
   faUniversity,
   faUsers,
+  faBars,
+  faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faMapMarkerAlt,
   faPhone,
   faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
+import { usePathname } from "next/navigation";
 
 export default function LayoutWrapper({
   children,
@@ -24,22 +26,29 @@ export default function LayoutWrapper({
 }) {
   const navbarRef = useRef<HTMLDivElement>(null);
   const [navbarHeight, setNavbarHeight] = useState(0);
-
+  const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
   useEffect(() => {
     if (navbarRef.current) {
       setNavbarHeight(navbarRef.current.offsetHeight);
     }
   }, []);
 
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
+
   return (
     <div>
+      {/* Navbar */}
       <nav
         ref={navbarRef}
-        className="absolute shadow-md px-6 py-2 bg-transparent w-full z-50"
+        className="absolute shadow-md px-6 py-2 bg-transparent w-full z-50 h-20 flex items-center justify-between "
       >
-        <div className="max-w-7xl mx-auto flex items-center justify-between relative">
+        <div className="max-w-7xl flex items-center justify-between relative w-full">
+          {/* Logo + Text */}
           <div className="flex items-center gap-4">
-            <div className="relative w-16 h-16">
+            <div className="relative w-12 h-12 sm:w-16 sm:h-16">
               <Image
                 src="/logo_ugm.jpg"
                 alt="Home"
@@ -48,21 +57,23 @@ export default function LayoutWrapper({
                 priority
               />
             </div>
-
-            <div className="flex flex-col leading-tight text-[var(--text-1)] font-bold text-lg">
+            <div className="flex flex-col leading-tight text-[var(--text-1)] font-bold text-sm md:text-lg">
               <span>Lab Algoritma dan Komputasi</span>
               <span>Universitas Gadjah Mada</span>
             </div>
           </div>
 
-          <ul className="flex space-x-6 text-[var(--text-1)] font-medium">
+          {/* Desktop Menu */}
+          <ul className="hidden lg:flex space-x-6 text-[var(--text-1)] font-medium">
             <li>
               <Link href="/" className="hover:text-[var(--text-1-hover)]">
                 Beranda
               </Link>
             </li>
+
+            {/* Tentang Kami Dropdown */}
             <li className="relative group cursor-pointer">
-              <span className="flex items-center gap-2 text-[var(--text-1)]">
+              <span className="flex items-center gap-2">
                 Tentang Kami
                 <FontAwesomeIcon
                   icon={faCaretRight}
@@ -91,8 +102,9 @@ export default function LayoutWrapper({
               </ul>
             </li>
 
+            {/* Penelitian Dropdown */}
             <li className="relative group cursor-pointer">
-              <span className="flex items-center gap-2 text-[var(--text-1)]">
+              <span className="flex items-center gap-2">
                 Penelitian
                 <FontAwesomeIcon
                   icon={faCaretRight}
@@ -102,7 +114,7 @@ export default function LayoutWrapper({
               <ul className="absolute left-0 top-full hidden group-hover:block pt-2 space-y-2 bg-white shadow-lg rounded-lg w-56 text-black z-10">
                 <li>
                   <Link
-                    href="/research/recent-research/alfian-amrizal"
+                    href="/research/recent-research?researcher=alfian-amrizal"
                     className="flex items-center gap-2 px-4 py-2 hover:bg-blue-100"
                   >
                     <FontAwesomeIcon icon={faFlask} />
@@ -120,6 +132,7 @@ export default function LayoutWrapper({
                 </li>
               </ul>
             </li>
+
             <li>
               <Link
                 href="/publications"
@@ -136,7 +149,6 @@ export default function LayoutWrapper({
                 Berita & Kegiatan
               </Link>
             </li>
-
             <li>
               <Link
                 href="/contact"
@@ -146,17 +158,103 @@ export default function LayoutWrapper({
               </Link>
             </li>
           </ul>
+
+          {/* Mobile Hamburger */}
+          <button
+            className="lg:hidden text-[var(--text-1)]"
+            onClick={() => setMenuOpen(!menuOpen)}
+            title="Menu sidebar"
+          >
+            <FontAwesomeIcon icon={menuOpen ? faTimes : faBars} size="lg" />
+          </button>
         </div>
       </nav>
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div className="absolute top-20 left-0 w-full lg:hidden bg-white text-gray-800 shadow-xl rounded-b-xl border-t border-gray-200 z-40">
+          <nav className="flex flex-col p-4 space-y-4 divide-y divide-gray-200">
+            <Link
+              href="/"
+              className="block px-3 py-2 rounded-md hover:bg-blue-50 hover:text-blue-600 transition"
+            >
+              Beranda
+            </Link>
 
+            <div>
+              <p className="px-3 py-2 font-semibold text-gray-700">
+                Tentang Kami
+              </p>
+              <div className="pl-6 space-y-2">
+                <Link
+                  href="/introduction"
+                  className="block px-3 py-2 rounded-md hover:bg-blue-50 hover:text-blue-600 transition"
+                >
+                  Profil Lab
+                </Link>
+                <Link
+                  href="/introduction/members"
+                  className="block px-3 py-2 rounded-md hover:bg-blue-50 hover:text-blue-600 transition"
+                >
+                  Anggota
+                </Link>
+              </div>
+            </div>
+
+            <div>
+              <p className="px-3 py-2 font-semibold text-gray-700">
+                Penelitian
+              </p>
+              <div className="pl-6 space-y-2">
+                <Link
+                  href="/research/recent-research?researcher=alfian-amrizal"
+                  className="block px-3 py-2 rounded-md hover:bg-blue-50 hover:text-blue-600 transition"
+                >
+                  Penelitian Terkini
+                </Link>
+                <Link
+                  href="/research/research-field"
+                  className="block px-3 py-2 rounded-md hover:bg-blue-50 hover:text-blue-600 transition"
+                >
+                  Bidang Penelitian
+                </Link>
+              </div>
+            </div>
+
+            <Link
+              href="/publications"
+              className="block px-3 py-2 rounded-md hover:bg-blue-50 hover:text-blue-600 transition"
+            >
+              Publikasi
+            </Link>
+
+            <Link
+              href="/news-and-events"
+              className="block px-3 py-2 rounded-md hover:bg-blue-50 hover:text-blue-600 transition"
+            >
+              Berita & Kegiatan
+            </Link>
+
+            <Link
+              href="/contact"
+              className="block px-3 py-2 rounded-md hover:bg-blue-50 hover:text-blue-600 transition"
+            >
+              Kontak
+            </Link>
+          </nav>
+        </div>
+      )}
+
+      {/* Page Content */}
       <div style={{ paddingTop: navbarHeight }}>{children}</div>
 
+      {/* Footer */}
       <footer className="bg-[var(--background-2)] text-[var(--text-1)] mt-16 shadow-lg">
         <div className="max-w-7xl mx-auto px-6 py-12 space-y-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+            {/* Logo & About */}
             <div className="space-y-4 lg:col-span-1">
               <div className="flex items-start gap-4">
-                <div className="relative w-16 h-16 shrink-0">
+                <div className="relative w-12 h-12 sm:w-16 sm:h-16 shrink-0">
                   <Image
                     src="/logo_ugm.jpg"
                     alt="UGM Logo"
@@ -179,14 +277,15 @@ export default function LayoutWrapper({
               </p>
             </div>
 
-            <div className="lg:col-span-2">
+            {/* Quick Links */}
+            <div className="sm:col-span-1 lg:col-span-2">
               <h3 className="text-lg font-semibold mb-4">Tautan Cepat</h3>
-              <div className="grid grid-cols-2 sm:grid-cols-2 gap-y-2">
+              <div className="grid grid-cols-2 gap-y-2">
                 <ul className="space-y-2">
                   <li>
                     <Link
                       href="/home"
-                      className="text-sm hover:text-[var(--text-1-hover)] transition-colors duration-200"
+                      className="text-sm hover:text-[var(--text-1-hover)] transition-colors"
                     >
                       Beranda
                     </Link>
@@ -194,7 +293,7 @@ export default function LayoutWrapper({
                   <li>
                     <Link
                       href="/introduction"
-                      className="text-sm hover:text-[var(--text-1-hover)] transition-colors duration-200"
+                      className="text-sm hover:text-[var(--text-1-hover)] transition-colors"
                     >
                       Tentang Kami
                     </Link>
@@ -202,7 +301,7 @@ export default function LayoutWrapper({
                   <li>
                     <Link
                       href="/research"
-                      className="text-sm hover:text-[var(--text-1-hover)] transition-colors duration-200"
+                      className="text-sm hover:text-[var(--text-1-hover)] transition-colors"
                     >
                       Penelitian
                     </Link>
@@ -210,7 +309,7 @@ export default function LayoutWrapper({
                   <li>
                     <Link
                       href="/research/publications"
-                      className="text-sm hover:text-[var(--text-1-hover)] transition-colors duration-200"
+                      className="text-sm hover:text-[var(--text-1-hover)] transition-colors"
                     >
                       Publikasi
                     </Link>
@@ -220,7 +319,7 @@ export default function LayoutWrapper({
                   <li>
                     <Link
                       href="/research/thesis-and-dissertation"
-                      className="text-sm hover:text-[var(--text-1-hover)] transition-colors duration-200"
+                      className="text-sm hover:text-[var(--text-1-hover)] transition-colors"
                     >
                       Tesis & Disertasi
                     </Link>
@@ -228,7 +327,7 @@ export default function LayoutWrapper({
                   <li>
                     <Link
                       href="/news-and-events"
-                      className="text-sm hover:text-[var(--text-1-hover)] transition-colors duration-200"
+                      className="text-sm hover:text-[var(--text-1-hover)] transition-colors"
                     >
                       Berita & Kegiatan
                     </Link>
@@ -236,7 +335,7 @@ export default function LayoutWrapper({
                   <li>
                     <Link
                       href="/members"
-                      className="text-sm hover:text-[var(--text-1-hover)] transition-colors duration-200"
+                      className="text-sm hover:text-[var(--text-1-hover)] transition-colors"
                     >
                       Anggota
                     </Link>
@@ -244,7 +343,7 @@ export default function LayoutWrapper({
                   <li>
                     <Link
                       href="/contact"
-                      className="text-sm hover:text-[var(--text-1-hover)] transition-colors duration-200"
+                      className="text-sm hover:text-[var(--text-1-hover)] transition-colors"
                     >
                       Kontak
                     </Link>
@@ -252,8 +351,10 @@ export default function LayoutWrapper({
                 </ul>
               </div>
             </div>
+
+            {/* Contact */}
             <div className="space-y-4">
-              <h3 className="text-lg font-semibold mb-4 ">Kontak Kami</h3>
+              <h3 className="text-lg font-semibold mb-4">Kontak Kami</h3>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
                   <FontAwesomeIcon
@@ -278,7 +379,7 @@ export default function LayoutWrapper({
                   />
                   <a
                     href="mailto:algoritma@ugm.ac.id"
-                    className="text-sm hover:text-[var(--text-1-hover)] transition-colors duration-200"
+                    className="text-sm hover:text-[var(--text-1-hover)] transition-colors"
                   >
                     algoritma@ugm.ac.id
                   </a>

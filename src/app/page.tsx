@@ -61,48 +61,82 @@ const topics = [
 export default function Home() {
   return (
     <div>
-      <section className="min-h-[80vh] flex items-center justify-center px-8 overflow-hidden relative bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900">
-        {/* Animated background elements */}
-        <div className="absolute inset-0 z-0">
-          {/* Grid pattern */}
-          <div className="absolute inset-0 opacity-10">
-            <Image
-              src="/fak-mipa.jpg"
-              alt="Home"
-              fill={true}
-              className="rounded-xl shadow-lg object-cover max-w-full h-auto"
-              priority
-            />
-          </div>
+      {/* Hero Section */}
+      <section className="min-h-[80vh] flex items-center justify-center px-4 sm:px-6 md:px-8 overflow-hidden relative bg-gradient-to-br from-slate-900 via-blue-900 to-purple-900">
+        <div className="absolute inset-0 z-0 opacity-10">
+          <Image
+            src="/fak-mipa.jpg"
+            alt="Home"
+            fill={true}
+            className="object-cover"
+            priority
+          />
         </div>
 
-        <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center z-10">
+        <div className="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 items-center z-10">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
             className="text-white relative"
           >
-            <div className="relative space-y-6">
-              <div className="absolute -left-8 top-0 h-full w-1 bg-gradient-to-b from-blue-400 to-purple-600 rounded-full" />
+            <div className="relative flex flex-col items-center lg:items-start text-center lg:text-left space-y-4 md:space-y-6">
+              <div className="absolute hidden lg:-left-8 top-0 h-full w-1 bg-gradient-to-b from-blue-400 to-purple-600 rounded-full" />
 
-              <h1 className="text-4xl md:text-6xl font-bold leading-tight bg-gradient-to-r from-blue-400 to-purple-300 bg-clip-text text-transparent">
+              <h1 className="text-4xl  md:text-5xl lg:text-6xl font-bold leading-tight bg-gradient-to-r from-blue-400 to-purple-300 bg-clip-text text-transparent">
                 Selamat Datang
               </h1>
 
-              <div className="space-y-4">
-                <div className="w-24 h-1 bg-blue-400 rounded-full mb-4" />
-                <h2 className="text-2xl md:text-4xl font-semibold leading-relaxed">
+              <div className="flex flex-col items-center lg:items-start space-y-3 md:space-y-4">
+                <div className="w-16 sm:w-20 md:w-24 h-1 bg-blue-400 rounded-full mb-3 md:mb-4" />
+                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold leading-relaxed">
                   Lab Algoritma & Komputasi
                 </h2>
-                <p className="text-lg md:text-xl text-blue-200 font-medium">
+                <p className="text-base sm:text-lg md:text-xl text-blue-200 font-medium">
                   Universitas Gadjah Mada
                 </p>
               </div>
             </div>
           </motion.div>
 
-          <div className="flex justify-center gap-8 h-96 overflow-hidden relative">
+          {/* Default (2 rows horizontal) */}
+          <div className="flex justify-center h-96 overflow-hidden relative lg:hidden flex-col">
+            {[
+              topics.slice(0, Math.ceil(topics.length / 2)),
+              topics.slice(Math.ceil(topics.length / 2)),
+            ].map((topicChunk, i) => {
+              const direction =
+                i % 2 === 0
+                  ? "animate-[slide-right_20s_linear_infinite]"
+                  : "animate-[slide-left_20s_linear_infinite]";
+
+              return (
+                <div key={i} className="w-full h-32 overflow-hidden relative">
+                  <div className={`flex absolute gap-4 ${direction}`}>
+                    {[...topicChunk, ...topicChunk].map((topic, index) => (
+                      <div
+                        key={index}
+                        className="h-24 w-24 flex-shrink-0 mx-auto"
+                      >
+                        <div className="h-full w-full bg-white/10 backdrop-blur-lg rounded-2xl shadow-xl flex flex-col items-center justify-center p-4 space-y-2 border border-white/20">
+                          <FontAwesomeIcon
+                            icon={topic.icon}
+                            className="text-3xl text-white drop-shadow-sm"
+                          />
+                          <p className="text-xs text-white text-center font-medium leading-snug">
+                            {topic.label}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Large screens (3 columns vertical) */}
+          <div className="hidden lg:flex justify-center gap-8 h-96 overflow-hidden relative">
             {[
               topics.slice(0, Math.ceil(topics.length / 3)),
               topics.slice(
@@ -111,18 +145,14 @@ export default function Home() {
               ),
               topics.slice(Math.ceil((2 * topics.length) / 3)),
             ].map((topicChunk, i) => {
-              // Define direction: even = scroll down, odd = scroll up
-              const direction = i % 2 === 0 ? "scroll-down" : "scroll-up";
-
-              // Define animation class using Tailwind arbitrary syntax
-              const animationClass =
-                direction === "scroll-down"
+              const direction =
+                i % 2 === 0
                   ? "animate-[scroll-down_20s_linear_infinite]"
                   : "animate-[scroll-up_20s_linear_infinite]";
 
               return (
                 <div key={i} className="w-32 h-full overflow-hidden relative">
-                  <div className={`absolute top-0 space-y-4 ${animationClass}`}>
+                  <div className={`absolute top-0 space-y-4 ${direction}`}>
                     {[...topicChunk, ...topicChunk].map((topic, index) => (
                       <div key={index} className="h-24 w-24 mx-auto">
                         <div className="h-full w-full bg-white/10 backdrop-blur-lg rounded-2xl shadow-xl flex flex-col items-center justify-center p-4 space-y-2 border border-white/20">
@@ -144,137 +174,145 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-10 px-6 py-12 max-w-7xl mx-auto">
-          <div className="flex-1 space-y-4 text-[var(--text-1)]">
-            <h2 className="text-3xl font-bold">Tentang Kami</h2>
-            <p className="text-lg">
+      {/* About Section */}
+      <section className="py-8 sm:py-10 md:py-12">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8 lg:gap-10 px-4 sm:px-6 md:px-8 max-w-7xl mx-auto">
+          <div className="flex-1 space-y-3 md:space-y-4 text-[var(--text-1)] order-2 md:order-1 text-center lg:text-left items-center lg:items-start">
+            <h2 className="text-2xl sm:text-3xl font-bold">Tentang Kami</h2>
+            <p className="text-base sm:text-lg">
               Laboratorium ini berfokus pada pengembangan riset dan inovasi di
               bidang ilmu komputer dengan berbagai pendekatan, termasuk
-              algoritma dan komputasi. Kami terus berupaya untuk memberikan
-              kontribusi dalam pengembangan teknologi dan sistem canggih yang
-              mendukung kemajuan berbagai sektor.
+              algoritma dan komputasi.
             </p>
-            <p className="text-lg">
+            <p className="text-base sm:text-lg">
               Dengan fasilitas yang mendukung riset dan pengembangan,
               laboratorium ini menyediakan tempat bagi kolaborasi
-              interdisipliner dan eksperimen dalam berbagai topik, seperti
-              pengolahan data, optimasi sistem, dan teknologi komputasi modern.
+              interdisipliner dan eksperimen dalam berbagai topik.
             </p>
-            <button className="mt-4 px-6 py-2 bg-[var(--background-3)] text-[var(--text-alt-1)] rounded-lg hover:bg-[var(--background-3-hover)] transition">
+            <button className="mt-3 sm:mt-4 px-4 sm:px-5 py-2 text-sm sm:text-base bg-[var(--background-3)] text-[var(--text-alt-1)] rounded-lg hover:bg-[var(--background-3-hover)] transition">
               Jelajahi
             </button>
           </div>
 
-          <div className="flex-1 flex justify-center">
-            <Image
-              src="/data_center.jpg"
-              alt="Home"
-              width={500}
-              height={500}
-              className="rounded-xl shadow-lg object-cover max-w-full h-auto"
-              priority
-            />
+          <div className="flex-1 lg:flex justify-center order-1 md:order-2 mb-6 md:mb-0 hidden">
+            <div className="w-full max-w-md lg:max-w-lg">
+              <Image
+                src="/data_center.jpg"
+                alt="Home"
+                width={600}
+                height={400}
+                className="rounded-xl shadow-lg object-cover w-full h-auto"
+                priority
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="flex flex-col items-center justify-center min-h-[80vh] px-6 py-12 bg-[var(--background-2)]">
-        <h2 className="text-4xl font-bold text-[var(--text-1)] mb-10">
-          Penelitian Terkini
-        </h2>
+      {/* Research Section */}
+      <section className="py-8 sm:py-10 md:py-12 bg-[var(--background-2)]">
+        <div className="flex flex-col items-center justify-center px-4 sm:px-6 max-w-7xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--text-1)] mb-6 md:mb-8 lg:mb-10">
+            Penelitian Terkini
+          </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-7xl w-full">
-          {publikasiData
-            .sort((a, b) => {
-            // Helper to normalize nulls -> put them at the bottom
-            const safeNum = (val: number | null | undefined) =>
-              val == null ? -Infinity : val;
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 w-full">
+            {publikasiData
+              .sort((a, b) => {
+                // Helper to normalize nulls -> put them at the bottom
+                const safeNum = (val: number | null | undefined) =>
+                  val == null ? -Infinity : val;
 
-            if (safeNum(b.tahun) !== safeNum(a.tahun)) {
-              return safeNum(b.tahun) - safeNum(a.tahun);
-            }
-            if (safeNum(b.bulan) !== safeNum(a.bulan)) {
-              return safeNum(b.bulan) - safeNum(a.bulan);
-            }
-            return safeNum(b.hari) - safeNum(a.hari);
-          })
-            .slice(0, 3) // Take the top 3 most recent
-            .map((item, index) => (
-              <div
-                key={index}
-                className="bg-[var(--background-2)] border border-[var(--border-1)] rounded-2xl shadow-sm hover:shadow-xl transition overflow-hidden flex flex-col"
-              >
-                <div className="p-6 flex flex-col justify-between flex-grow">
-                  <div>
-                    <h3 className="text-2xl text-[var(--text-1)] mb-2">
-                      {item.judul}
-                    </h3>
-                    <p className="text-[var(--text-1-shade)] text-sm">
-                      {item.deskripsi}
-                    </p>
-                  </div>
+                if (safeNum(b.tahun) !== safeNum(a.tahun)) {
+                  return safeNum(b.tahun) - safeNum(a.tahun);
+                }
+                if (safeNum(b.bulan) !== safeNum(a.bulan)) {
+                  return safeNum(b.bulan) - safeNum(a.bulan);
+                }
+                return safeNum(b.hari) - safeNum(a.hari);
+              })
+              .slice(0, 3)
+              .map((item, index) => (
+                <div
+                  key={index}
+                  className="bg-[var(--background-2)] border border-[var(--border-1)] rounded-xl md:rounded-2xl shadow-sm hover:shadow-md md:hover:shadow-xl transition overflow-hidden flex flex-col"
+                >
+                  <div className="p-4 sm:p-5 md:p-6 flex flex-col justify-between flex-grow">
+                    <div>
+                      <h3 className="text-lg sm:text-xl md:text-2xl text-[var(--text-1)] mb-2">
+                        {item.judul}
+                      </h3>
+                      <p className="text-[var(--text-1-shade)] text-xs sm:text-sm">
+                        {item.deskripsi.substring(0, 100)}...
+                      </p>
+                    </div>
 
-                  <div className="mt-6">
-                    <Link
-                      href={`/research/${item.judul
-                        .toLowerCase()
-                        .replace(/ /g, "-")
-                        .replace(/[^\w-]+/g, "")}`}
-                      className="inline-block px-4 py-2 text-sm font-medium text-[var(--text-alt-1)] bg-[var(--background-3)] rounded-lg hover:bg-[var(--background-3-hover)] transition"
-                    >
-                      Selengkapnya
-                    </Link>
+                    <div className="mt-4 sm:mt-5">
+                      <Link
+                        href={`/research/${item.judul
+                          .toLowerCase()
+                          .replace(/ /g, "-")
+                          .replace(/[^\w-]+/g, "")}`}
+                        className="inline-block px-3 sm:px-4 py-1 sm:py-2 text-xs sm:text-sm font-medium text-[var(--text-alt-1)] bg-[var(--background-3)] rounded hover:bg-[var(--background-3-hover)] transition"
+                      >
+                        Selengkapnya
+                      </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+          </div>
         </div>
       </section>
 
-      <section className=" flex flex-col items-center justify-center min-h-[80vh] px-6 py-12 bg-[var(--background-1)]">
-        <h2 className="text-4xl font-bold text-[var(--text-1)] mb-10">
-          Berita & Kegiatan
-        </h2>
+      {/* News Section */}
+      <section className="py-8 sm:py-10 md:py-12 bg-[var(--background-1)]">
+        <div className="flex flex-col items-center justify-center px-4 sm:px-6 max-w-5xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--text-1)] mb-6 md:mb-8 lg:mb-10">
+            Berita & Kegiatan
+          </h2>
 
-        <div className="space-y-8 max-w-5xl w-full">
-          {newsevents.slice(0, 3).map((item, i) => (
-            <div
-              key={i}
-              className="flex flex-col md:flex-row items-start gap-6 border-l-4 border-[var(--border-2)] bg-[var(--background-2)] p-6 rounded-xl shadow hover:shadow-lg transition"
-            >
-              <Image
-                src={item.img}
-                alt={item.title}
-                width={200}
-                height={140}
-                className="rounded-lg object-cover w-full md:w-60 h-40"
-              />
-              <div className="flex-1">
-                <h3 className="text-xl font-semibold text-[var(--text-1)] mb-1">
-                  {item.title}
-                </h3>
-                <p className="text-[var(--text-1-shade)] text-sm mb-2">
-                  {item.desc}
-                </p>
-                <Link
-                  href={`/news-and-events/${item.slug}`}
-                  className="text-blue-700 hover:underline font-medium text-sm"
-                >
-                  Baca Selengkapnya →
-                </Link>
+          <div className="space-y-5 sm:space-y-6 md:space-y-8 w-full">
+            {newsevents.slice(0, 3).map((item, i) => (
+              <div
+                key={i}
+                className="flex flex-col md:flex-row items-start gap-4 sm:gap-5 md:gap-6 border-l-4 border-[var(--border-2)] bg-[var(--background-2)] p-4 sm:p-5 md:p-6 rounded-lg md:rounded-xl shadow hover:shadow-md md:hover:shadow-lg transition"
+              >
+                <div className="w-full md:w-48 lg:w-56 flex-shrink-0">
+                  <Image
+                    src={item.img}
+                    alt={item.title}
+                    width={240}
+                    height={160}
+                    className="rounded-lg object-cover w-full h-32 sm:h-36 md:h-40"
+                  />
+                </div>
+                <div className="flex-1 mt-3 md:mt-0">
+                  <h3 className="text-lg sm:text-xl font-semibold text-[var(--text-1)] mb-1">
+                    {item.title}
+                  </h3>
+                  <p className="text-[var(--text-1-shade)] text-xs sm:text-sm mb-2">
+                    {item.desc.substring(0, 120)}...
+                  </p>
+                  <Link
+                    href={`/news-and-events/${item.slug}`}
+                    className="text-blue-700 hover:underline font-medium text-xs sm:text-sm"
+                  >
+                    Baca Selengkapnya →
+                  </Link>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
 
-        <div className="mt-10">
-          <Link
-            href="/news-and-events"
-            className="px-6 py-3 bg-[var(--background-3)] text-[var(--text-alt-1)] rounded-lg hover:bg-[var(--background-3-hover)] transition"
-          >
-            Lihat Semua
-          </Link>
+          <div className="mt-8 sm:mt-10">
+            <Link
+              href="/news-and-events"
+              className="px-5 sm:px-6 py-2 sm:py-3 text-sm sm:text-base bg-[var(--background-3)] text-[var(--text-alt-1)] rounded-lg hover:bg-[var(--background-3-hover)] transition"
+            >
+              Lihat Semua
+            </Link>
+          </div>
         </div>
       </section>
     </div>

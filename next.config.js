@@ -2,11 +2,11 @@
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
-  output: 'export',
-  distDir: 'dist',
+  output: "export",
+  distDir: "dist",
   eslint: {
     ignoreDuringBuilds: true,
   },
-}
- 
-module.exports = nextConfig
+};
+
+module.exports = nextConfig;
