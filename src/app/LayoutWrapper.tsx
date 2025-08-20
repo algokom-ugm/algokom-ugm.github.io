@@ -72,7 +72,7 @@ export default function LayoutWrapper({
             </li>
 
             {/* Tentang Kami Dropdown */}
-            <li className="relative group cursor-pointer">
+            {/* <li className="relative group cursor-pointer">
               <span className="flex items-center gap-2">
                 Tentang Kami
                 <FontAwesomeIcon
@@ -100,6 +100,18 @@ export default function LayoutWrapper({
                   </Link>
                 </li>
               </ul>
+            </li> */}
+
+            <li>
+              <Link href="/introduction" className="hover:text-[var(--text-1-hover)]">
+                Profil Lab
+              </Link>
+            </li>
+
+            <li>
+              <Link href="/introduction/members" className="hover:text-[var(--text-1-hover)]">
+                Anggota Lab
+              </Link>
             </li>
 
             {/* Penelitian Dropdown */}
@@ -149,14 +161,14 @@ export default function LayoutWrapper({
                 Publikasi
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link
                 href="/news-and-events"
                 className="hover:text-[var(--text-1-hover)]"
               >
                 Berita & Kegiatan
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link
                 href="/contact"

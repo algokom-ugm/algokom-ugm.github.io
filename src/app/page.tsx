@@ -180,14 +180,10 @@ export default function Home() {
           <div className="flex-1 space-y-3 md:space-y-4 text-[var(--text-1)] order-2 md:order-1 text-center lg:text-left items-center lg:items-start">
             <h2 className="text-2xl sm:text-3xl font-bold">Tentang Kami</h2>
             <p className="text-base sm:text-lg">
-              Laboratorium ini berfokus pada pengembangan riset dan inovasi di
-              bidang ilmu komputer dengan berbagai pendekatan, termasuk
-              algoritma dan komputasi.
+              Selamat datang di <b>Laboratorium Algoritma dan Komputasi</b> Universitas Gadjah Mada. Laboratorium ini merupakan pusat riset yang aktif di Departemen Ilmu Komputer dan Elektronika, Fakultas Matematika dan Ilmu Pengetahuan Alam, dengan fokus pada pengembangan penelitian di bidang algoritma serta komputasi.
             </p>
             <p className="text-base sm:text-lg">
-              Dengan fasilitas yang mendukung riset dan pengembangan,
-              laboratorium ini menyediakan tempat bagi kolaborasi
-              interdisipliner dan eksperimen dalam berbagai topik.
+              Di bawah arahan <b>Muhammad Alfian Amrizal, B.Eng., M.I.S., Ph.D.</b>, SENADA menjadi wadah kolaborasi antara dosen dan mahasiswa yang memiliki antusiasme untuk merancang berbagai solusi inovatif yang ditujukan untuk menjawab permasalahan nyata di bidang kesehatan, pendidikan, maupun masyarakat secara luas.
             </p>
             {/* <button className="mt-3 sm:mt-4 px-4 sm:px-5 py-2 text-sm sm:text-base bg-[var(--background-3)] text-[var(--text-alt-1)] rounded-lg hover:bg-[var(--background-3-hover)] transition">
               Jelajahi

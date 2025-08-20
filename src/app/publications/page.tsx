@@ -115,7 +115,7 @@ export default function Publications() {
   const processedData = useMemo(() => {
     return publikasiData.reduce((acc, pub) => {
       // const year = pub.tahun.toString();
-      const year = pub.tahun ? pub.tahun.toString() : "Unknown";
+      const year = pub.tahun ? pub.tahun.toString() : "Unknown Year";
       const researchersMap = new Map(penelitiData.map((p) => [p.id, p.nama]));
 
       if (!acc[year]) {
