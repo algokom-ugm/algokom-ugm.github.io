@@ -80,7 +80,7 @@ export default function Members() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-4">
-            {members.map((member) => (
+            {members.filter((member) => member.researcherSlug !== headOfLab.researcherSlug).map((member) => (
               <a
                 href={`/research/recent-research?researcher=${member.researcherSlug}`}
                 className="group relative flex flex-col items-center p-6 rounded-3xl bg-gradient-to-br from-white to-blue-50 shadow-lg hover:shadow-xl transition-all duration-300 ease-out hover:-translate-y-2"
