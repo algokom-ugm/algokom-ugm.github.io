@@ -36,11 +36,11 @@ const topics = [
   { icon: faSatelliteDish, label: "Wireless Network" },
   { icon: faCheckCircle, label: "Formal Method" },
   { icon: faChartLine, label: "Stochastic Analysis" },
-  { icon: faCheckCircle, label: "Software QA" },
+  // { icon: faCheckCircle, label: "Software QA" },
   { icon: faLock, label: "Kriptografi" },
   { icon: faProjectDiagram, label: "Ontology" },
-  { icon: faBrain, label: "Knowledge Graph" },
-  { icon: faSearch, label: "Info Retrieval" },
+  // { icon: faBrain, label: "Knowledge Graph" },
+  // { icon: faSearch, label: "Info Retrieval" },
   { icon: faCogs, label: "Numerical Method" },
   { icon: faLaptopCode, label: "Parallel Computing" },
   { icon: faShapes, label: "Algo & Computation" },
@@ -49,11 +49,11 @@ const topics = [
   { icon: faCamera, label: "Image Processing" },
   { icon: faPalette, label: "Graphics Computing" },
   { icon: faChartBar, label: "Forecasting" },
-  { icon: faDatabase, label: "DBMS" },
+  // { icon: faDatabase, label: "DBMS" },
   { icon: faStream, label: "Graph Computing" },
-  { icon: faPlayCircle, label: "Media Analysis" },
-  { icon: faRobot, label: "Machine Learning" },
-  { icon: faDatabase, label: "Data Science" },
+  // { icon: faPlayCircle, label: "Media Analysis" },
+  // { icon: faRobot, label: "Machine Learning" },
+  // { icon: faDatabase, label: "Data Science" },
   { icon: faAtom, label: "Simulation" },
   { icon: faCogs, label: "Parallel Systems" },
 ];
@@ -84,16 +84,16 @@ export default function Home() {
               <div className="absolute hidden lg:-left-8 top-0 h-full w-1 bg-gradient-to-b from-blue-400 to-purple-600 rounded-full" />
 
               <h1 className="text-4xl  md:text-5xl lg:text-6xl font-bold leading-tight bg-gradient-to-r from-blue-400 to-purple-300 bg-clip-text text-transparent">
-                Selamat Datang
+                Lab Algoritma & Komputasi
               </h1>
 
               <div className="flex flex-col items-center lg:items-start space-y-3 md:space-y-4">
                 <div className="w-16 sm:w-20 md:w-24 h-1 bg-blue-400 rounded-full mb-3 md:mb-4" />
                 <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold leading-relaxed">
-                  Lab Algoritma & Komputasi
+                  Universitas Gadjah Mada
                 </h2>
                 <p className="text-base sm:text-lg md:text-xl text-blue-200 font-medium">
-                  Universitas Gadjah Mada
+                  Dari Teori ke Komputasi, Dari Algoritma ke Solusi.
                 </p>
               </div>
             </div>
@@ -189,9 +189,18 @@ export default function Home() {
               laboratorium ini menyediakan tempat bagi kolaborasi
               interdisipliner dan eksperimen dalam berbagai topik.
             </p>
-            <button className="mt-3 sm:mt-4 px-4 sm:px-5 py-2 text-sm sm:text-base bg-[var(--background-3)] text-[var(--text-alt-1)] rounded-lg hover:bg-[var(--background-3-hover)] transition">
+            {/* <button className="mt-3 sm:mt-4 px-4 sm:px-5 py-2 text-sm sm:text-base bg-[var(--background-3)] text-[var(--text-alt-1)] rounded-lg hover:bg-[var(--background-3-hover)] transition">
               Jelajahi
-            </button>
+            </button> */}
+            <Link href="/introduction">
+              <button
+                className="cursor-pointer mt-3 sm:mt-4 px-4 sm:px-5 py-2 text-sm sm:text-base 
+                          bg-[var(--background-3)] text-[var(--text-alt-1)] rounded-lg 
+                          hover:bg-[var(--background-3-hover)] transition"
+              >
+                Jelajahi
+              </button>
+            </Link>
           </div>
 
           <div className="flex-1 lg:flex justify-center order-1 md:order-2 mb-6 md:mb-0 hidden">
