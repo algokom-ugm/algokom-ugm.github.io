@@ -55,7 +55,7 @@ export const penelitiData: Peneliti[] = [
     jabatan_lab: "head of lab",
     jabatan_akademik: "Lektor",
     bidang_minat:
-      "interest 1, interest 2, interest 3, interest 4, interest 5, interest 6",
+      "High Performance Computing, Wireless Sensor Network, Reliable System/AI",
     image: "/alfian_amrizal.jpg",
     url_scholar: "https://scholar.google.com/citations?user=DDt1D5sAAAAJ",
     url_scopus: "https://www.scopus.com/authid/detail.uri?authorId=55599451800",
@@ -91,7 +91,7 @@ export const penelitiData: Peneliti[] = [
     jabatan_lab: "member lab",
     jabatan_akademik: "Lektor Kepala",
     bidang_minat:
-      "interest 1, interest 2, interest 3, interest 4, interest 5, interest 6",
+      "Deteksi outlier",
     image: "/nur_rokhman.jpg",
     url_scholar: "https://scholar.google.com/citations?user=W58AawoAAAAJ",
     url_scopus: "https://www.scopus.com/authid/detail.uri?authorId=57090804800",
@@ -115,7 +115,7 @@ export const penelitiData: Peneliti[] = [
     jabatan_lab: "member lab",
     jabatan_akademik: "Lektor Kepala",
     bidang_minat:
-      "interest 1, interest 2, interest 3, interest 4, interest 5, interest 6",
+      "Vision-Based Intelligent Surveillance System, Video Analytic, Medical Image Processing and Analysis",
     image: "/wahyono.jpg",
     url_scholar: "https://scholar.google.com/citations?user=agr1gDAAAAAJ",
     url_scopus: "https://www.scopus.com/authid/detail.uri?authorId=55617659300",
@@ -151,7 +151,7 @@ export const penelitiData: Peneliti[] = [
     jabatan_lab: "member lab",
     jabatan_akademik: "Lektor",
     bidang_minat:
-      "interest 1, interest 2, interest 3, interest 4, interest 5, interest 6",
+      "AI model improvement/adaptation, computer graphics",
     image: "/edi_wibowo.jpg",
     url_scholar: "https://scholar.google.com/citations?user=kt9I7zwAAAAJ",
     url_scopus: "https://www.scopus.com/authid/detail.uri?authorId=54975678100",
@@ -175,7 +175,7 @@ export const penelitiData: Peneliti[] = [
     jabatan_lab: "member lab",
     jabatan_akademik: "Lektor",
     bidang_minat:
-      "interest 1, interest 2, interest 3, interest 4, interest 5, interest 6",
+      "Modelling and Optimization, Numerical Methods",
     image: "/faizal_makhrus.jpg",
     url_scholar: "https://scholar.google.com/citations?user=Kos0vPcAAAAJ",
     url_scopus: "https://www.scopus.com/authid/detail.uri?authorId=57427178300",

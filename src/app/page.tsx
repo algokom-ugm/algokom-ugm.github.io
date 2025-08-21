@@ -296,7 +296,7 @@ export default function Home() {
       </section>
 
       {/* News Section */}
-      <section className="py-8 sm:py-10 md:py-12 bg-[var(--background-1)]">
+      {/* <section className="py-8 sm:py-10 md:py-12 bg-[var(--background-1)]">
         <div className="flex flex-col items-center justify-center px-4 sm:px-6 max-w-5xl mx-auto">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[var(--text-1)] mb-6 md:mb-8 lg:mb-10">
             Berita & Kegiatan
@@ -334,12 +334,12 @@ export default function Home() {
                     />
                   </div>
                   <Link href={`/news-and-events/${item.slug}`}>
-                    {/* Button untuk mobile (default) */}
+                    Button untuk mobile (default)
                     <button className="block md:hidden px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 text-xs sm:text-sm mt-4">
                       Selengkapnya
                     </button>
 
-                    {/* Text biasa untuk md ke atas */}
+                    Text biasa untuk md ke atas
                     <span className="hidden md:inline text-blue-700 hover:underline font-medium text-xs sm:text-sm">
                       Baca Selengkapnya →
                     </span>
@@ -358,7 +358,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }
