@@ -42,7 +42,7 @@ export default function LayoutWrapper({
           <div className="flex items-center gap-4">
             <div className="relative w-12 h-12 sm:w-16 sm:h-16">
               <Image
-                src="/logo_ugm.jpg"
+                src="/Logo_Algokom.png"
                 alt="Home"
                 fill
                 className="object-cover"

@@ -216,7 +216,7 @@ export default function Home() {
           <div className="flex-1 flex justify-center order-1 md:order-2 mb-6 md:mb-0">
             <div className="w-full max-w-md lg:max-w-lg">
               <Image
-                src="/data_center.jpg"
+                src="/hpc-dike.jpg"
                 alt="Home"
                 width={600}
                 height={400}
