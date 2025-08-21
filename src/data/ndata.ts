@@ -50,7 +50,7 @@ export interface Publikasi {
 export const penelitiData: Peneliti[] = [
   {
     id: 1,
-    nama: "Muhammad Alfian Amrizal, B.Eng., M.I.S., Ph.D.",
+    nama: "Muhammad Alfian Amrizal, Ph.D",
     slug: "muhammad-alfian-amrizal",
     jabatan_lab: "head of lab",
     jabatan_akademik: "Lektor",
@@ -62,7 +62,7 @@ export const penelitiData: Peneliti[] = [
   },
   {
     id: 2,
-    nama: "Prof. Dr.-Ing. Mhd. Reza M. I. Pulungan, S.Si., M.Sc.",
+    nama: "Prof. Dr.-Ing. Mhd. Reza M. I. Pulungan",
     slug: "reza-pulungan",
     jabatan_lab: "member lab",
     jabatan_akademik: "Guru Besar",
@@ -86,7 +86,7 @@ export const penelitiData: Peneliti[] = [
   // },
   {
     id: 4,
-    nama: "Nur Rokhman, S.Si., M.Kom., Dr.",
+    nama: "Dr. Nur Rokhman",
     slug: "nur-rokhman",
     jabatan_lab: "member lab",
     jabatan_akademik: "Lektor Kepala",
@@ -98,7 +98,7 @@ export const penelitiData: Peneliti[] = [
   },
   {
     id: 5,
-    nama: "Suprapto, Drs., M.I.Kom. Dr.",
+    nama: "Prof. Dr. Suprapto",
     slug: "suprapto",
     jabatan_lab: "member lab",
     jabatan_akademik: "Guru Besar",
@@ -110,7 +110,7 @@ export const penelitiData: Peneliti[] = [
   },
   {
     id: 6,
-    nama: "Wahyono, S.Kom, Ph.D.",
+    nama: "Wahyono, Ph.D",
     slug: "wahyono",
     jabatan_lab: "member lab",
     jabatan_akademik: "Lektor Kepala",
@@ -122,7 +122,7 @@ export const penelitiData: Peneliti[] = [
   },
   {
     id: 7,
-    nama: "Agus Sihabuddin, S.Si., M.Kom., Dr.",
+    nama: "Dr. Agus Sihabuddin",
     slug: "agus-sihabuddin",
     jabatan_lab: "member lab",
     jabatan_akademik: "Lektor Kepala",
@@ -134,7 +134,7 @@ export const penelitiData: Peneliti[] = [
   },
   {
     id: 8,
-    nama: "Janoe Hendarto, Drs., M.I.Kom.",
+    nama: "Janoe Hendarto",
     slug: "janoe-hendarto",
     jabatan_lab: "member lab",
     jabatan_akademik: "Lektor",
@@ -146,7 +146,7 @@ export const penelitiData: Peneliti[] = [
   },
   {
     id: 9,
-    nama: "Moh. Edi Wibowo,S.Kom., M.Kom, Ph.D.",
+    nama: "Moh. Edi Wibowo, Ph.D",
     slug: "edi-wibowo",
     jabatan_lab: "member lab",
     jabatan_akademik: "Lektor",
@@ -158,7 +158,7 @@ export const penelitiData: Peneliti[] = [
   },
   {
     id: 10,
-    nama: "Erwin Eko Wahyudi, S.Kom., M.Cs.",
+    nama: "Erwin Eko Wahyudi",
     slug: "erwin-eko-wahyudi",
     jabatan_lab: "member lab",
     jabatan_akademik: "Lektor",
@@ -170,7 +170,7 @@ export const penelitiData: Peneliti[] = [
   },
   {
     id: 11,
-    nama: "Faizal Makhrus,S.Kom., M.Sc., Ph.D",
+    nama: "Faizal Makhrus, Ph.D",
     slug: "faizal-makhrus",
     jabatan_lab: "member lab",
     jabatan_akademik: "Lektor",
@@ -182,7 +182,7 @@ export const penelitiData: Peneliti[] = [
   },
   {
     id: 12,
-    nama: "Novera Istiqomah, S.T., M.T., Ph.D.",
+    nama: "Novera Istiqomah, Ph.D",
     slug: "novera-istiqomah",
     jabatan_lab: "member lab",
     jabatan_akademik: "Tenaga Pengajar",

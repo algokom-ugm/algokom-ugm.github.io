@@ -93,7 +93,7 @@ export default function Home() {
                   Universitas Gadjah Mada
                 </h2>
                 <p className="text-base sm:text-lg md:text-xl text-blue-200 font-medium">
-                  Dari Teori ke Komputasi, Dari Algoritma ke Solusi.
+                  Dari Teori ke Komputasi, dari Algoritma ke Solusi.
                 </p>
               </div>
             </div>
@@ -181,6 +181,18 @@ export default function Home() {
             <h2 className="text-2xl sm:text-3xl font-bold text-center lg:text-left">
               Tentang Kami
             </h2>
+            <div className="flex-1 flex justify-center order-1 md:order-2 mb-6 md:mb-0">
+              <div className="w-full max-w-md lg:max-w-lg">
+                <Image
+                  src="/hpc-dike.jpg"
+                  alt="Home"
+                  width={600}
+                  height={400}
+                  className="rounded-xl shadow-lg object-cover w-full h-auto"
+                  priority
+                />
+              </div>
+            </div>
             <p className="text-base sm:text-lg text-justify lg:text-left">
               Selamat datang di <b>Laboratorium Algoritma dan Komputasi</b>{" "}
               Universitas Gadjah Mada. Laboratorium ini merupakan pusat riset
@@ -213,18 +225,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex-1 flex justify-center order-1 md:order-2 mb-6 md:mb-0">
-            <div className="w-full max-w-md lg:max-w-lg">
-              <Image
-                src="/hpc-dike.jpg"
-                alt="Home"
-                width={600}
-                height={400}
-                className="rounded-xl shadow-lg object-cover w-full h-auto"
-                priority
-              />
-            </div>
-          </div>
+          
         </div>
       </section>
 

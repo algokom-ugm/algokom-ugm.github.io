@@ -400,10 +400,10 @@ export default function LayoutWrapper({
                     className="text-[var(--icon-muted)] w-4"
                   />
                   <a
-                    href="mailto:algoritma@ugm.ac.id"
+                    href="mailto:muhammad.alfian.amrizal@ugm.ac.id"
                     className="text-sm hover:text-[var(--text-1-hover)] transition-colors"
                   >
-                    algoritma@ugm.ac.id
+                    muhammad.alfian.amrizal@ugm.ac.id
                   </a>
                 </li>
               </ul>
