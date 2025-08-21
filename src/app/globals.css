@@ -60,6 +60,20 @@ body {
   display: none;
 }
 
+.hoverable-icons {
+  opacity: 1;
+}
+
+@media (hover: hover) {
+  .hoverable-icons {
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .hoverable-icons:hover {
+    opacity: 1;
+  }
+}
 @layer utilities {
   .animate-spin-slow {
     animation: spin 20s linear infinite;

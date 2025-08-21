@@ -61,13 +61,13 @@ export default function Members() {
                   </p>
                 </div>
 
-                <div className="opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 mt-auto pt-2 flex gap-4 justify-center items-center">
+                <div className="opacity-100 lg:opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 mt-auto pt-2 flex gap-4 justify-center items-center">
                   <div
                     className="flex items-center justify-center aspect-square w-8"
                     onClick={() => goToPublications(headOfLab.id)}
                   >
                     <FontAwesomeIcon
-                      className="text-blue-600 hover:text-yellow-600 text-[32px] object-contain cursor-pointer transition-all duration-300"
+                      className="text-blue-600 hover:text-yellow-600 hover:scale-110 text-[32px] object-contain cursor-pointer transition-all duration-300"
                       icon={faBook}
                     />
                   </div>
@@ -77,13 +77,13 @@ export default function Members() {
                     href={headOfLab.url_scholar}
                   >
                     <FontAwesomeIcon
-                      className="text-blue-600 hover:text-yellow-600 text-[32px] object-contain cursor-pointer transition-all duration-300"
+                      className="text-blue-600 hover:text-yellow-600 hover:scale-110 text-[32px] object-contain cursor-pointer transition-all duration-300"
                       icon={faGraduationCap}
                     />
                   </a>
 
                   <a
-                    className="flex items-center justify-center aspect-square w-8 rounded bg-blue-600 hover:bg-yellow-600 cursor-pointer transition-all duration-300 text-white font-bold"
+                    className="flex items-center justify-center aspect-square w-8 rounded bg-blue-600 hover:bg-yellow-600 hover:scale-110 cursor-pointer transition-all duration-300 text-white font-bold"
                     href={headOfLab.url_scopus}
                     title="Scopus"
                   >
@@ -137,13 +137,13 @@ export default function Members() {
                     </p>
                   </div>
 
-                  <div className="opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 mt-auto pt-2 flex gap-4 justify-center items-center">
+                  <div className="opacity-100 lg:opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 mt-auto pt-2 flex gap-4 justify-center items-center">
                     <div
                       className="flex items-center justify-center aspect-square w-8"
                       onClick={() => goToPublications(member.id)}
                     >
                       <FontAwesomeIcon
-                        className="text-blue-600 hover:text-yellow-600 text-[32px] object-contain cursor-pointer transition-all duration-300"
+                        className="text-blue-600 hover:text-yellow-600 hover:scale-110 text-[32px] object-contain cursor-pointer transition-all duration-300"
                         icon={faBook}
                       />
                     </div>
@@ -153,13 +153,13 @@ export default function Members() {
                       href={member.url_scholar}
                     >
                       <FontAwesomeIcon
-                        className="text-blue-600 hover:text-yellow-600 text-[32px] object-contain cursor-pointer transition-all duration-300"
+                        className="text-blue-600 hover:text-yellow-600 hover:scale-110 text-[32px] object-contain cursor-pointer transition-all duration-300"
                         icon={faGraduationCap}
                       />
                     </a>
 
                     <a
-                      className="flex items-center justify-center aspect-square w-8 rounded bg-blue-600 hover:bg-yellow-600 cursor-pointer transition-all duration-300 text-white font-bold"
+                      className="flex items-center justify-center aspect-square w-8 rounded bg-blue-600 hover:bg-yellow-600 hover:scale-110 cursor-pointer transition-all duration-300 text-white font-bold"
                       href={member.url_scopus}
                       title="Scopus"
                     >
