@@ -16,7 +16,7 @@ function RecentResearchContent() {
   const researcherSlugParam = searchParams.get("researcher");
   const selectedResearcher =
     penelitiData.find((r) => r.slug === researcherSlugParam) || penelitiData[0];
-  console.log(selectedResearcher);
+
   // Prepare publications for the selected researcher
   const filteredResearch = publikasiData
     .filter((pub) => pub.id_peneliti.includes(selectedResearcher.id))
