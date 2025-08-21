@@ -3,15 +3,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faFlask,
-  faCaretRight,
-  faLayerGroup,
-  faUniversity,
-  faUsers,
-  faBars,
-  faTimes,
-} from "@fortawesome/free-solid-svg-icons";
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import {
   faMapMarkerAlt,
   faPhone,

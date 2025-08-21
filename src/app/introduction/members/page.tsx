@@ -3,6 +3,8 @@ import Image from "next/image";
 import { penelitiData } from "@/data/ndata";
 import { useRouter } from "next/navigation";
 import { setNavigationState } from "@/utils/navigation-state";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBook, faGraduationCap } from "@fortawesome/free-solid-svg-icons";
 
 export default function Members() {
   const router = useRouter();
@@ -59,41 +61,33 @@ export default function Members() {
                   </p>
                 </div>
 
-                <div className="opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                  <span
+                <div className="opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 mt-auto pt-2 flex gap-4 justify-center items-center">
+                  <div
+                    className="flex items-center justify-center aspect-square w-8"
                     onClick={() => goToPublications(headOfLab.id)}
-                    className="inline-flex items-center text-blue-600 hover:text-yellow-600 text-sm hover:text-base font-medium cursor-pointer transition-all duration-300"
                   >
-                    Tampilkan Publikasi
-                    <svg
-                      className="w-4 h-4 ml-1"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M13 7l5 5m0 0l-5 5m5-5H6"
-                      />
-                    </svg>
-                  </span>
-                  <a className="inline-flex items-center text-blue-600 hover:text-yellow-600 text-sm hover:text-base font-medium cursor-pointer transition-all duration-300">
-                    Tampilkan Web Personal
-                    <svg
-                      className="w-4 h-4 ml-1"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M13 7l5 5m0 0l-5 5m5-5H6"
-                      />
-                    </svg>
+                    <FontAwesomeIcon
+                      className="text-blue-600 hover:text-yellow-600 text-[32px] object-contain cursor-pointer transition-all duration-300"
+                      icon={faBook}
+                    />
+                  </div>
+
+                  <a
+                    className="flex items-center justify-center aspect-square w-8"
+                    href={headOfLab.url_scholar}
+                  >
+                    <FontAwesomeIcon
+                      className="text-blue-600 hover:text-yellow-600 text-[32px] object-contain cursor-pointer transition-all duration-300"
+                      icon={faGraduationCap}
+                    />
+                  </a>
+
+                  <a
+                    className="flex items-center justify-center aspect-square w-8 rounded bg-blue-600 hover:bg-yellow-600 cursor-pointer transition-all duration-300 text-white font-bold"
+                    href={headOfLab.url_scopus}
+                    title="Scopus"
+                  >
+                    SC
                   </a>
                 </div>
               </div>
@@ -118,18 +112,18 @@ export default function Members() {
               >
                 <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-100 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-                <div className="relative mb-5 z-10">
+                <div className="relative mb-5 z-10 w-32 h-32 overflow-hidden rounded-full">
                   <div className="absolute inset-0 bg-blue-100 rounded-full transform rotate-45 scale-95 group-hover:scale-105 transition-transform duration-300" />
+
                   <Image
                     src={member.image}
                     alt={member.nama}
-                    width={128}
-                    height={128}
-                    className="relative z-10 rounded-full border-4 border-white object-cover transform group-hover:scale-105 transition-transform duration-300"
+                    fill
+                    className="object-cover object-top rounded-full border-4 border-white transform group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
 
-                <div className="text-center space-y-3 relative z-10">
+                <div className="text-center space-y-3 relative z-10 flex flex-col flex-1">
                   <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
                     {member.nama}
                     <span className="block mt-1 text-sm font-medium text-blue-500">
@@ -143,41 +137,33 @@ export default function Members() {
                     </p>
                   </div>
 
-                  <div className="opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 ">
-                    <span
+                  <div className="opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 mt-auto pt-2 flex gap-4 justify-center items-center">
+                    <div
+                      className="flex items-center justify-center aspect-square w-8"
                       onClick={() => goToPublications(member.id)}
-                      className="inline-flex items-center text-blue-600 hover:text-yellow-600 text-sm hover:text-base font-medium cursor-pointer transition-all duration-300"
                     >
-                      Tampilkan Publikasi
-                      <svg
-                        className="w-4 h-4 ml-1"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M13 7l5 5m0 0l-5 5m5-5H6"
-                        />
-                      </svg>
-                    </span>
-                    <a className="inline-flex items-center text-blue-600 hover:text-yellow-600 text-sm hover:text-base font-medium cursor-pointer transition-all duration-300">
-                      Tampilkan Web Personal
-                      <svg
-                        className="w-4 h-4 ml-1"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M13 7l5 5m0 0l-5 5m5-5H6"
-                        />
-                      </svg>
+                      <FontAwesomeIcon
+                        className="text-blue-600 hover:text-yellow-600 text-[32px] object-contain cursor-pointer transition-all duration-300"
+                        icon={faBook}
+                      />
+                    </div>
+
+                    <a
+                      className="flex items-center justify-center aspect-square w-8"
+                      href={member.url_scholar}
+                    >
+                      <FontAwesomeIcon
+                        className="text-blue-600 hover:text-yellow-600 text-[32px] object-contain cursor-pointer transition-all duration-300"
+                        icon={faGraduationCap}
+                      />
+                    </a>
+
+                    <a
+                      className="flex items-center justify-center aspect-square w-8 rounded bg-blue-600 hover:bg-yellow-600 cursor-pointer transition-all duration-300 text-white font-bold"
+                      href={member.url_scopus}
+                      title="Scopus"
+                    >
+                      SC
                     </a>
                   </div>
                 </div>

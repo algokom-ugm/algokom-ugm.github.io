@@ -21,6 +21,8 @@ export interface Peneliti {
   jabatan_akademik: JabatanAkademik;
   bidang_minat: string;
   image: string;
+  url_scholar: string;
+  url_scopus: string;
 }
 
 export interface BidangPenelitian {
@@ -55,6 +57,8 @@ export const penelitiData: Peneliti[] = [
     bidang_minat:
       "interest 1, interest 2, interest 3, interest 4, interest 5, interest 6",
     image: "/alfian_amrizal.jpg",
+    url_scholar: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
+    url_scopus: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
   },
   {
     id: 2,
@@ -65,6 +69,8 @@ export const penelitiData: Peneliti[] = [
     bidang_minat:
       "interest 1, interest 2, interest 3, interest 4, interest 5, interest 6",
     image: "/reza_pulungan.jpg",
+    url_scholar: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
+    url_scopus: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
   },
   {
     id: 3,
@@ -75,6 +81,8 @@ export const penelitiData: Peneliti[] = [
     bidang_minat:
       "interest 1, interest 2, interest 3, interest 4, interest 5, interest 6",
     image: "/anny_kartika_sari.jpg",
+    url_scholar: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
+    url_scopus: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
   },
   {
     id: 4,
@@ -85,6 +93,8 @@ export const penelitiData: Peneliti[] = [
     bidang_minat:
       "interest 1, interest 2, interest 3, interest 4, interest 5, interest 6",
     image: "/nur_rokhman.jpg",
+    url_scholar: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
+    url_scopus: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
   },
   {
     id: 5,
@@ -95,6 +105,8 @@ export const penelitiData: Peneliti[] = [
     bidang_minat:
       "interest 1, interest 2, interest 3, interest 4, interest 5, interest 6",
     image: "/suprapto.jpg",
+    url_scholar: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
+    url_scopus: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
   },
   {
     id: 6,
@@ -105,6 +117,8 @@ export const penelitiData: Peneliti[] = [
     bidang_minat:
       "interest 1, interest 2, interest 3, interest 4, interest 5, interest 6",
     image: "/wahyono.jpg",
+    url_scholar: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
+    url_scopus: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
   },
   {
     id: 7,
@@ -115,6 +129,8 @@ export const penelitiData: Peneliti[] = [
     bidang_minat:
       "interest 1, interest 2, interest 3, interest 4, interest 5, interest 6",
     image: "/agus_sihabuddin.jpg",
+    url_scholar: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
+    url_scopus: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
   },
   {
     id: 8,
@@ -125,6 +141,8 @@ export const penelitiData: Peneliti[] = [
     bidang_minat:
       "interest 1, interest 2, interest 3, interest 4, interest 5, interest 6",
     image: "/janoe_hendarto.jpg",
+    url_scholar: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
+    url_scopus: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
   },
   {
     id: 9,
@@ -135,6 +153,8 @@ export const penelitiData: Peneliti[] = [
     bidang_minat:
       "interest 1, interest 2, interest 3, interest 4, interest 5, interest 6",
     image: "/edi_wibowo.jpg",
+    url_scholar: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
+    url_scopus: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
   },
   {
     id: 10,
@@ -145,6 +165,8 @@ export const penelitiData: Peneliti[] = [
     bidang_minat:
       "interest 1, interest 2, interest 3, interest 4, interest 5, interest 6",
     image: "/eko_wahyudi.jpg",
+    url_scholar: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
+    url_scopus: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
   },
   {
     id: 11,
@@ -155,6 +177,8 @@ export const penelitiData: Peneliti[] = [
     bidang_minat:
       "interest 1, interest 2, interest 3, interest 4, interest 5, interest 6",
     image: "/faizal_makhrus.jpg",
+    url_scholar: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
+    url_scopus: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
   },
 ];
 
