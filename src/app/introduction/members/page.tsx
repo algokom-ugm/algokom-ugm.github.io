@@ -29,7 +29,6 @@ export default function Members() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-4">
             <div
-              onClick={() => goToPublications(headOfLab.id)}
               className="group relative flex flex-col items-center p-6 rounded-3xl bg-gradient-to-br from-white to-blue-50 shadow-lg hover:shadow-xl transition-all duration-300 ease-out hover:-translate-y-2"
               key={headOfLab.id}
             >
@@ -55,13 +54,16 @@ export default function Members() {
                 </h3>
 
                 <div className="flex items-center justify-center space-x-2">
-                  {/* <p className="text-sm text-gray-600 font-medium">
-                    {headOfLab.bidang}
-                  </p> */}
+                  <p className="text-sm text-gray-600 font-medium">
+                    {headOfLab.bidang_minat}
+                  </p>
                 </div>
 
                 <div className="opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                  <span className="inline-flex items-center text-blue-600 text-sm font-medium">
+                  <span
+                    onClick={() => goToPublications(headOfLab.id)}
+                    className="inline-flex items-center text-blue-600 hover:text-yellow-600 text-sm hover:text-base font-medium cursor-pointer transition-all duration-300"
+                  >
                     Tampilkan Publikasi
                     <svg
                       className="w-4 h-4 ml-1"
@@ -77,6 +79,22 @@ export default function Members() {
                       />
                     </svg>
                   </span>
+                  <a className="inline-flex items-center text-blue-600 hover:text-yellow-600 text-sm hover:text-base font-medium cursor-pointer transition-all duration-300">
+                    Tampilkan Web Personal
+                    <svg
+                      className="w-4 h-4 ml-1"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 7l5 5m0 0l-5 5m5-5H6"
+                      />
+                    </svg>
+                  </a>
                 </div>
               </div>
             </div>
@@ -95,7 +113,6 @@ export default function Members() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-4">
             {members.map((member) => (
               <div
-                onClick={() => goToPublications(member.id)}
                 className="group relative flex flex-col items-center p-6 rounded-3xl bg-gradient-to-br from-white to-blue-50 shadow-lg hover:shadow-xl transition-all duration-300 ease-out hover:-translate-y-2"
                 key={member.id}
               >
@@ -121,14 +138,17 @@ export default function Members() {
                   </h3>
 
                   <div className="flex items-center justify-center space-x-2">
-                    {/* <p className="text-sm text-gray-600 font-medium">
-                      {member.bidang}
-                    </p> */}
+                    <p className="text-sm text-gray-600 font-medium">
+                      {member.bidang_minat}
+                    </p>
                   </div>
 
-                  <div className="opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                    <span className="inline-flex items-center text-blue-600 text-sm font-medium">
-                      View Recent Research
+                  <div className="opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 ">
+                    <span
+                      onClick={() => goToPublications(member.id)}
+                      className="inline-flex items-center text-blue-600 hover:text-yellow-600 text-sm hover:text-base font-medium cursor-pointer transition-all duration-300"
+                    >
+                      Tampilkan Publikasi
                       <svg
                         className="w-4 h-4 ml-1"
                         fill="none"
@@ -143,6 +163,22 @@ export default function Members() {
                         />
                       </svg>
                     </span>
+                    <a className="inline-flex items-center text-blue-600 hover:text-yellow-600 text-sm hover:text-base font-medium cursor-pointer transition-all duration-300">
+                      Tampilkan Web Personal
+                      <svg
+                        className="w-4 h-4 ml-1"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M13 7l5 5m0 0l-5 5m5-5H6"
+                        />
+                      </svg>
+                    </a>
                   </div>
                 </div>
               </div>

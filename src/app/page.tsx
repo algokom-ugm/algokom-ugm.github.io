@@ -176,17 +176,19 @@ export default function Home() {
 
       {/* About Section */}
       <section className="py-8 sm:py-10 md:py-12">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8 lg:gap-10 px-4 sm:px-6 md:px-8 max-w-7xl mx-auto">
-          <div className="flex-1 space-y-3 md:space-y-4 text-[var(--text-1)] order-2 md:order-1 text-center lg:text-left items-center lg:items-start">
-            <h2 className="text-2xl sm:text-3xl font-bold">Tentang Kami</h2>
-            <p className="text-base sm:text-lg">
+        <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-6 md:gap-8 lg:gap-10 px-4 sm:px-6 md:px-8 max-w-7xl mx-auto">
+          <div className="flex-1 space-y-3 md:space-y-4 text-[var(--text-1)] order-2 md:order-1 items-center lg:items-start">
+            <h2 className="text-2xl sm:text-3xl font-bold text-center lg:text-left">
+              Tentang Kami
+            </h2>
+            <p className="text-base sm:text-lg text-justify lg:text-left">
               Selamat datang di <b>Laboratorium Algoritma dan Komputasi</b>{" "}
               Universitas Gadjah Mada. Laboratorium ini merupakan pusat riset
               yang aktif di Departemen Ilmu Komputer dan Elektronika, Fakultas
               Matematika dan Ilmu Pengetahuan Alam, dengan fokus pada
               pengembangan penelitian di bidang algoritma serta komputasi.
             </p>
-            <p className="text-base sm:text-lg">
+            <p className="text-base sm:text-lg text-justify lg:text-left">
               Di bawah arahan{" "}
               <b>Muhammad Alfian Amrizal, B.Eng., M.I.S., Ph.D.</b>,
               Laboratorium Algoritma dan Komputasi menjadi wadah kolaborasi
@@ -198,18 +200,20 @@ export default function Home() {
             {/* <button className="mt-3 sm:mt-4 px-4 sm:px-5 py-2 text-sm sm:text-base bg-[var(--background-3)] text-[var(--text-alt-1)] rounded-lg hover:bg-[var(--background-3-hover)] transition">
               Jelajahi
             </button> */}
-            <Link href="/introduction">
-              <button
-                className="cursor-pointer mt-3 sm:mt-4 px-4 sm:px-5 py-2 text-sm sm:text-base 
+            <div className="w-full flex justify-center items-center lg:items-left lg:justify-start">
+              <Link href="/introduction">
+                <button
+                  className="cursor-pointer mt-3 sm:mt-4 px-4 sm:px-5 py-2 text-sm sm:text-base 
                           bg-[var(--background-3)] text-[var(--text-alt-1)] rounded-lg 
                           hover:bg-[var(--background-3-hover)] transition"
-              >
-                Jelajahi
-              </button>
-            </Link>
+                >
+                  Jelajahi
+                </button>
+              </Link>
+            </div>
           </div>
 
-          <div className="flex-1 lg:flex justify-center order-1 md:order-2 mb-6 md:mb-0 hidden">
+          <div className="flex-1 flex justify-center order-1 md:order-2 mb-6 md:mb-0">
             <div className="w-full max-w-md lg:max-w-lg">
               <Image
                 src="/data_center.jpg"
@@ -270,7 +274,7 @@ export default function Home() {
                         alt={item.judul}
                         width={240}
                         height={160}
-                        className="rounded-lg object-cover w-full h-32 sm:h-36 md:h-40 mt-4 bg-gray-200"
+                        className="rounded-lg object-cover w-full h-40 mt-4 bg-gray-200"
                       />
                       <div className="mt-4 sm:mt-5">
                         <Link
@@ -304,13 +308,13 @@ export default function Home() {
                 key={i}
                 className="flex flex-col md:flex-row items-start gap-4 sm:gap-5 md:gap-6 border-l-4 border-[var(--border-2)] bg-[var(--background-2)] p-4 sm:p-5 md:p-6 rounded-lg md:rounded-xl shadow hover:shadow-md md:hover:shadow-lg transition"
               >
-                <div className="w-full md:w-48 lg:w-56 flex-shrink-0">
+                <div className="w-full hidden md:block md:w-48 lg:w-56 flex-shrink-0">
                   <Image
                     src={item.img}
                     alt={item.title}
                     width={240}
                     height={160}
-                    className="rounded-lg object-cover w-full h-32 sm:h-36 md:h-40"
+                    className="rounded-lg object-cover w-full h-40"
                   />
                 </div>
                 <div className="flex-1 mt-3 md:mt-0">
@@ -320,11 +324,25 @@ export default function Home() {
                   <p className="text-[var(--text-1-shade)] text-xs sm:text-sm mb-2">
                     {item.desc.substring(0, 120)}...
                   </p>
-                  <Link
-                    href={`/news-and-events/${item.slug}`}
-                    className="text-blue-700 hover:underline font-medium text-xs sm:text-sm"
-                  >
-                    Baca Selengkapnya →
+                  <div className="w-full md:hidden flex-shrink-0">
+                    <Image
+                      src={item.img}
+                      alt={item.title}
+                      width={240}
+                      height={160}
+                      className="rounded-lg object-cover w-full h-40"
+                    />
+                  </div>
+                  <Link href={`/news-and-events/${item.slug}`}>
+                    {/* Button untuk mobile (default) */}
+                    <button className="block md:hidden px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 text-xs sm:text-sm mt-4">
+                      Selengkapnya
+                    </button>
+
+                    {/* Text biasa untuk md ke atas */}
+                    <span className="hidden md:inline text-blue-700 hover:underline font-medium text-xs sm:text-sm">
+                      Baca Selengkapnya →
+                    </span>
                   </Link>
                 </div>
               </div>
