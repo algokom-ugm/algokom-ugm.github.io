@@ -103,13 +103,19 @@ export default function LayoutWrapper({
             </li> */}
 
             <li>
-              <Link href="/introduction" className="hover:text-[var(--text-1-hover)]">
+              <Link
+                href="/introduction"
+                className="hover:text-[var(--text-1-hover)]"
+              >
                 Profil Lab
               </Link>
             </li>
 
             <li>
-              <Link href="/introduction/members" className="hover:text-[var(--text-1-hover)]">
+              <Link
+                href="/introduction/members"
+                className="hover:text-[var(--text-1-hover)]"
+              >
                 Anggota Lab
               </Link>
             </li>
@@ -150,7 +156,7 @@ export default function LayoutWrapper({
                 href="/research/recent-research?researcher=alfian-amrizal"
                 className="hover:text-[var(--text-1-hover)]"
               >
-                Penelitian Terkini
+                Proyek Lab
               </Link>
             </li>
             <li>
@@ -303,10 +309,42 @@ export default function LayoutWrapper({
               </p>
             </div>
 
+            {/* Academic Affiliations*/}
+            <div className="">
+              <h3 className="text-lg font-semibold mb-4">Afiliasi Akademis</h3>
+              <div className="grid gap-y-2">
+                <ul className="space-y-2">
+                  <li>
+                    <Link
+                      href="https://dcse.fmipa.ugm.ac.id/"
+                      className="text-sm hover:text-[var(--text-1-hover)] transition-colors"
+                    >
+                      Department of Computer Science and Electronics
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="https://mipa.ugm.ac.id/"
+                      className="text-sm hover:text-[var(--text-1-hover)] transition-colors"
+                    >
+                      Faculty of Mathematics and Natural Sciences
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="https://ugm.ac.id/"
+                      className="text-sm hover:text-[var(--text-1-hover)] transition-colors"
+                    >
+                      Universitas Gadjah Mada
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </div>
             {/* Quick Links */}
-            <div className="sm:col-span-1 lg:col-span-2">
+            <div className="">
               <h3 className="text-lg font-semibold mb-4">Tautan Cepat</h3>
-              <div className="grid grid-cols-2 gap-y-2">
+              <div className="grid gap-y-2">
                 <ul className="space-y-2">
                   <li>
                     <Link
@@ -326,36 +364,10 @@ export default function LayoutWrapper({
                   </li>
                   <li>
                     <Link
-                      href="/research"
-                      className="text-sm hover:text-[var(--text-1-hover)] transition-colors"
-                    >
-                      Penelitian
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
                       href="/research/publications"
                       className="text-sm hover:text-[var(--text-1-hover)] transition-colors"
                     >
                       Publikasi
-                    </Link>
-                  </li>
-                </ul>
-                <ul className="space-y-2">
-                  <li>
-                    <Link
-                      href="/research/thesis-and-dissertation"
-                      className="text-sm hover:text-[var(--text-1-hover)] transition-colors"
-                    >
-                      Tesis & Disertasi
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/news-and-events"
-                      className="text-sm hover:text-[var(--text-1-hover)] transition-colors"
-                    >
-                      Berita & Kegiatan
                     </Link>
                   </li>
                   <li>
@@ -364,14 +376,6 @@ export default function LayoutWrapper({
                       className="text-sm hover:text-[var(--text-1-hover)] transition-colors"
                     >
                       Anggota
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="/contact"
-                      className="text-sm hover:text-[var(--text-1-hover)] transition-colors"
-                    >
-                      Kontak
                     </Link>
                   </li>
                 </ul>

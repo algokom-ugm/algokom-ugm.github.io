@@ -180,10 +180,20 @@ export default function Home() {
           <div className="flex-1 space-y-3 md:space-y-4 text-[var(--text-1)] order-2 md:order-1 text-center lg:text-left items-center lg:items-start">
             <h2 className="text-2xl sm:text-3xl font-bold">Tentang Kami</h2>
             <p className="text-base sm:text-lg">
-              Selamat datang di <b>Laboratorium Algoritma dan Komputasi</b> Universitas Gadjah Mada. Laboratorium ini merupakan pusat riset yang aktif di Departemen Ilmu Komputer dan Elektronika, Fakultas Matematika dan Ilmu Pengetahuan Alam, dengan fokus pada pengembangan penelitian di bidang algoritma serta komputasi.
+              Selamat datang di <b>Laboratorium Algoritma dan Komputasi</b>{" "}
+              Universitas Gadjah Mada. Laboratorium ini merupakan pusat riset
+              yang aktif di Departemen Ilmu Komputer dan Elektronika, Fakultas
+              Matematika dan Ilmu Pengetahuan Alam, dengan fokus pada
+              pengembangan penelitian di bidang algoritma serta komputasi.
             </p>
             <p className="text-base sm:text-lg">
-              Di bawah arahan <b>Muhammad Alfian Amrizal, B.Eng., M.I.S., Ph.D.</b>, Laboratorium Algoritma dan Komputasi menjadi wadah kolaborasi antara dosen dan mahasiswa yang memiliki antusiasme untuk merancang berbagai solusi inovatif yang ditujukan untuk menjawab permasalahan nyata di bidang kesehatan, pendidikan, maupun masyarakat secara luas.
+              Di bawah arahan{" "}
+              <b>Muhammad Alfian Amrizal, B.Eng., M.I.S., Ph.D.</b>,
+              Laboratorium Algoritma dan Komputasi menjadi wadah kolaborasi
+              antara dosen dan mahasiswa yang memiliki antusiasme untuk
+              merancang berbagai solusi inovatif yang ditujukan untuk menjawab
+              permasalahan nyata di bidang kesehatan, pendidikan, maupun
+              masyarakat secara luas.
             </p>
             {/* <button className="mt-3 sm:mt-4 px-4 sm:px-5 py-2 text-sm sm:text-base bg-[var(--background-3)] text-[var(--text-alt-1)] rounded-lg hover:bg-[var(--background-3-hover)] transition">
               Jelajahi
@@ -242,7 +252,8 @@ export default function Home() {
                   key={index}
                   className="bg-[var(--background-2)] border border-[var(--border-1)] rounded-xl md:rounded-2xl shadow-sm hover:shadow-md md:hover:shadow-xl transition overflow-hidden flex flex-col"
                 >
-                  <div className="p-4 sm:p-5 md:p-6 flex flex-col justify-between flex-grow">
+                  <div className="p-4 sm:p-5 md:p-6 flex flex-col flex-grow">
+                    {/* judul + deskripsi bebas panjang */}
                     <div>
                       <h3 className="text-lg sm:text-xl md:text-2xl text-[var(--text-1)] mb-2">
                         {item.judul}
@@ -252,16 +263,26 @@ export default function Home() {
                       </p>
                     </div>
 
-                    <div className="mt-4 sm:mt-5">
-                      <Link
-                        href={`/research/${item.judul
-                          .toLowerCase()
-                          .replace(/ /g, "-")
-                          .replace(/[^\w-]+/g, "")}`}
-                        className="inline-block px-3 sm:px-4 py-1 sm:py-2 text-xs sm:text-sm font-medium text-[var(--text-alt-1)] bg-[var(--background-3)] rounded hover:bg-[var(--background-3-hover)] transition"
-                      >
-                        Selengkapnya
-                      </Link>
+                    {/* spacer + gambar fix posisi */}
+                    <div className="mt-auto">
+                      <Image
+                        src={item.image}
+                        alt={item.judul}
+                        width={240}
+                        height={160}
+                        className="rounded-lg object-cover w-full h-32 sm:h-36 md:h-40 mt-4 bg-gray-200"
+                      />
+                      <div className="mt-4 sm:mt-5">
+                        <Link
+                          href={`/research/${item.judul
+                            .toLowerCase()
+                            .replace(/ /g, "-")
+                            .replace(/[^\w-]+/g, "")}`}
+                          className="inline-block px-3 sm:px-4 py-1 sm:py-2 text-xs sm:text-sm font-medium text-[var(--text-alt-1)] bg-[var(--background-3)] rounded hover:bg-[var(--background-3-hover)] transition"
+                        >
+                          Selengkapnya
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </div>

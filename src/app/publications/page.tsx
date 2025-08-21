@@ -3,8 +3,6 @@ import { publikasiData, penelitiData } from "@/data/ndata";
 import {
   faBook,
   faGlobe,
-  faUsers,
-  faMedal,
   faFilePdf,
   faArrowRight,
   faChevronDown,
@@ -17,6 +15,7 @@ import { useState, useMemo } from "react";
 type ProcessedPublication = {
   journalPapers: Array<{
     title: string;
+    id_peneliti: number[];
     authors: string;
     year: number | null;
     month: number | null;
@@ -27,24 +26,7 @@ type ProcessedPublication = {
   }>;
   internationalConferences: Array<{
     title: string;
-    authors: string;
-    year: number | null;
-    month: number | null;
-    day: number | null;
-    pdf?: string;
-    slug: string;
-  }>;
-  doctoralDissertations: Array<{
-    title: string;
-    authors: string;
-    year: number | null;
-    month: number | null;
-    day: number | null;
-    pdf?: string;
-    slug: string;
-  }>;
-  masterTheses: Array<{
-    title: string;
+    id_peneliti: number[];
     authors: string;
     year: number | null;
     month: number | null;
@@ -111,6 +93,21 @@ export default function Publications() {
   const [selectedTypes, setSelectedTypes] = useState<Set<PublicationType>>(
     new Set()
   );
+  const [selectedResearchers, setSelectedResearchers] = useState<Set<number>>(
+    new Set()
+  );
+
+  const toggleResearcher = (id: number) => {
+    setSelectedResearchers((prev) => {
+      const newSet = new Set(prev);
+      if (newSet.has(id)) {
+        newSet.delete(id);
+      } else {
+        newSet.add(id);
+      }
+      return newSet;
+    });
+  };
 
   const processedData = useMemo(() => {
     return publikasiData.reduce((acc, pub) => {
@@ -122,13 +119,12 @@ export default function Publications() {
         acc[year] = {
           journalPapers: [],
           internationalConferences: [],
-          doctoralDissertations: [],
-          masterTheses: [],
         };
       }
 
       const baseEntry = {
         title: pub.judul,
+        id_peneliti: pub.id_peneliti,
         authors: pub.id_peneliti
           .map((id) => researchersMap.get(id) || "Unknown")
           .join(", "),
@@ -149,12 +145,6 @@ export default function Publications() {
         case "konferensi internasional":
           acc[year].internationalConferences.push(baseEntry);
           break;
-        case "disertasi doktoral":
-          acc[year].doctoralDissertations.push(baseEntry);
-          break;
-        case "tesis magister":
-          acc[year].masterTheses.push(baseEntry);
-          break;
       }
 
       return acc;
@@ -166,48 +156,51 @@ export default function Publications() {
 
     return Object.entries(processedData)
       .filter(([_year, data]) => {
-        // Check if year has any matching items
         return Object.entries(data).some(([type, items]) => {
           const typeSelected =
             selectedTypes.size === 0 ||
             selectedTypes.has(type as PublicationType);
-          const hasMatches = items.some(
-            (item) =>
+          const hasMatches = items.some((item) => {
+            const matchesSearch =
               item.title.toLowerCase().includes(searchLower) ||
-              item.authors.toLowerCase().includes(searchLower)
-          );
+              item.authors.toLowerCase().includes(searchLower);
+            const matchesResearcher =
+              selectedResearchers.size === 0 ||
+              item.id_peneliti.some((id) => selectedResearchers.has(id));
+
+            return matchesSearch && matchesResearcher;
+          });
           return typeSelected && hasMatches;
         });
       })
       .map(([year, data]) => {
-        // Filter individual items
         const filteredCategories = {
-          journalPapers: data.journalPapers.filter(
-            (item) =>
-              (selectedTypes.size === 0 ||
-                selectedTypes.has("journalPapers")) &&
-              (item.title.toLowerCase().includes(searchLower) ||
-                item.authors.toLowerCase().includes(searchLower))
-          ),
+          journalPapers: data.journalPapers.filter((item) => {
+            const matchesType =
+              selectedTypes.size === 0 || selectedTypes.has("journalPapers");
+            const matchesSearch =
+              item.title.toLowerCase().includes(searchLower) ||
+              item.authors.toLowerCase().includes(searchLower);
+            const matchesResearcher =
+              selectedResearchers.size === 0 ||
+              item.id_peneliti.some((id) => selectedResearchers.has(id));
+
+            return matchesType && matchesSearch && matchesResearcher;
+          }),
           internationalConferences: data.internationalConferences.filter(
-            (item) =>
-              (selectedTypes.size === 0 ||
-                selectedTypes.has("internationalConferences")) &&
-              (item.title.toLowerCase().includes(searchLower) ||
-                item.authors.toLowerCase().includes(searchLower))
-          ),
-          doctoralDissertations: data.doctoralDissertations.filter(
-            (item) =>
-              (selectedTypes.size === 0 ||
-                selectedTypes.has("doctoralDissertations")) &&
-              (item.title.toLowerCase().includes(searchLower) ||
-                item.authors.toLowerCase().includes(searchLower))
-          ),
-          masterTheses: data.masterTheses.filter(
-            (item) =>
-              (selectedTypes.size === 0 || selectedTypes.has("masterTheses")) &&
-              (item.title.toLowerCase().includes(searchLower) ||
-                item.authors.toLowerCase().includes(searchLower))
+            (item) => {
+              const matchesType =
+                selectedTypes.size === 0 ||
+                selectedTypes.has("internationalConferences");
+              const matchesSearch =
+                item.title.toLowerCase().includes(searchLower) ||
+                item.authors.toLowerCase().includes(searchLower);
+              const matchesResearcher =
+                selectedResearchers.size === 0 ||
+                item.id_peneliti.some((id) => selectedResearchers.has(id));
+
+              return matchesType && matchesSearch && matchesResearcher;
+            }
           ),
         };
 
@@ -217,7 +210,7 @@ export default function Publications() {
         Object.values(data).some((category) => category.length > 0)
       )
       .sort(([a], [b]) => Number(b) - Number(a));
-  }, [processedData, searchQuery, selectedTypes]);
+  }, [processedData, searchQuery, selectedTypes, selectedResearchers]);
 
   const toggleYear = (year: string) => {
     setExpandedYears(
@@ -277,8 +270,6 @@ export default function Publications() {
           {[
             ["journalPapers", "Makalah Jurnal"],
             ["internationalConferences", "Konferensi Internasional"],
-            ["doctoralDissertations", "Disertasi Doktoral"],
-            ["masterTheses", "Tesis Magister"],
           ].map(([type, label]) => (
             <label key={type} className="flex items-center space-x-2">
               <input
@@ -291,6 +282,34 @@ export default function Publications() {
             </label>
           ))}
         </div>
+        <details className="relative w-84 text-gray-700">
+          <summary className="flex justify-between items-center p-3 bg-white border border-gray-300 rounded-lg shadow-sm cursor-pointer hover:ring-1 hover:ring-indigo-500 transition-all">
+            <span className="font-medium">
+              {selectedResearchers.size > 0
+                ? `${selectedResearchers.size} peneliti dipilih`
+                : "Filter Peneliti"}
+            </span>
+            <span className="ml-2 text-gray-400 transition-transform duration-200 [&_details[open]>summary>&]:rotate-180">
+              &#9662;
+            </span>
+          </summary>
+          <div className="absolute left-0 mt-1 w-full max-h-64 overflow-y-auto bg-white border border-gray-300 rounded-lg shadow-lg z-50 p-2">
+            {penelitiData.map((peneliti) => (
+              <label
+                key={peneliti.id}
+                className="flex items-center space-x-2 p-2 rounded hover:bg-indigo-50 cursor-pointer transition"
+              >
+                <input
+                  type="checkbox"
+                  className="form-checkbox h-4 w-4 text-indigo-600"
+                  checked={selectedResearchers.has(peneliti.id)}
+                  onChange={() => toggleResearcher(peneliti.id)}
+                />
+                <span className="text-gray-700">{peneliti.nama}</span>
+              </label>
+            ))}
+          </div>
+        </details>
       </div>
 
       <div className="space-y-4">
@@ -350,32 +369,6 @@ export default function Publications() {
                       onToggle={() =>
                         toggleCategory(year, "internationalConferences")
                       }
-                    />
-                  )}
-
-                  {yearData.doctoralDissertations.length > 0 && (
-                    <CategorySection
-                      icon={<FontAwesomeIcon icon={faMedal} />}
-                      title="Disertasi Doktoral"
-                      items={yearData.doctoralDissertations}
-                      colorClass="text-purple-600 bg-purple-50"
-                      isExpanded={expandedCategories[year]?.has(
-                        "doctoralDissertations"
-                      )}
-                      onToggle={() =>
-                        toggleCategory(year, "doctoralDissertations")
-                      }
-                    />
-                  )}
-
-                  {yearData.masterTheses.length > 0 && (
-                    <CategorySection
-                      icon={<FontAwesomeIcon icon={faUsers} />}
-                      title="Tesis Magister"
-                      items={yearData.masterTheses}
-                      colorClass="text-orange-600 bg-orange-50"
-                      isExpanded={expandedCategories[year]?.has("masterTheses")}
-                      onToggle={() => toggleCategory(year, "masterTheses")}
                     />
                   )}
                 </div>
