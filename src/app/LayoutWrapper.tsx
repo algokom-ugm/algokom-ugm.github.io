@@ -40,7 +40,7 @@ export default function LayoutWrapper({
         <div className="max-w-7xl flex items-center justify-between relative w-full">
           {/* Logo + Text */}
           <div className="flex items-center gap-4">
-            <div className="relative w-12 h-12 sm:w-16 sm:h-16">
+            <div className="relative w-9 h-9 sm:w-16 sm:h-16">
               <Image
                 src="/Logo_Algokom.png"
                 alt="Home"
@@ -280,7 +280,7 @@ export default function LayoutWrapper({
               <div className="flex items-start gap-4">
                 <div className="relative w-12 h-12 sm:w-16 sm:h-16 shrink-0">
                   <Image
-                    src="/logo_ugm.jpg"
+                    src="/Logo_Algokom.png"
                     alt="UGM Logo"
                     fill
                     className="object-cover rounded-lg"
@@ -296,8 +296,7 @@ export default function LayoutWrapper({
                 </div>
               </div>
               <p className="text-sm opacity-80 leading-relaxed">
-                Laboratorium penelitian dan pengembangan ilmu komputer berbasis
-                algoritma.
+                Dari Teori ke Komputasi, dari Algoritma ke Solusi.
               </p>
             </div>
 
@@ -387,13 +386,13 @@ export default function LayoutWrapper({
                     Jl. Teknika Utara, Sekip Utara, Yogyakarta 55281
                   </span>
                 </li>
-                <li className="flex items-center gap-3">
+                {/* <li className="flex items-center gap-3">
                   <FontAwesomeIcon
                     icon={faPhone}
                     className="text-[var(--icon-muted)] w-4"
                   />
                   <span className="text-sm opacity-90">+62 274 1234567</span>
-                </li>
+                </li> */}
                 <li className="flex items-center gap-3">
                   <FontAwesomeIcon
                     icon={faEnvelope}

@@ -181,18 +181,6 @@ export default function Home() {
             <h2 className="text-2xl sm:text-3xl font-bold text-center lg:text-left">
               Tentang Kami
             </h2>
-            <div className="flex-1 flex justify-center order-1 md:order-2 mb-6 md:mb-0">
-              <div className="w-full max-w-md lg:max-w-lg">
-                <Image
-                  src="/hpc-dike.jpg"
-                  alt="Home"
-                  width={600}
-                  height={400}
-                  className="rounded-xl shadow-lg object-cover w-full h-auto"
-                  priority
-                />
-              </div>
-            </div>
             <p className="text-base sm:text-lg text-justify lg:text-left">
               Selamat datang di <b>Laboratorium Algoritma dan Komputasi</b>{" "}
               Universitas Gadjah Mada. Laboratorium ini merupakan pusat riset
@@ -212,6 +200,18 @@ export default function Home() {
             {/* <button className="mt-3 sm:mt-4 px-4 sm:px-5 py-2 text-sm sm:text-base bg-[var(--background-3)] text-[var(--text-alt-1)] rounded-lg hover:bg-[var(--background-3-hover)] transition">
               Jelajahi
             </button> */}
+            <div className="flex-1 flex justify-center order-1 md:order-2 mb-6 md:mb-0">
+              <div className="w-full max-w-md lg:max-w-lg">
+                <Image
+                  src="/hpc-dike.jpg"
+                  alt="Home"
+                  width={600}
+                  height={400}
+                  className="rounded-xl shadow-lg object-cover w-full h-auto"
+                  priority
+                />
+              </div>
+            </div>
             <div className="w-full flex justify-center items-center lg:items-left lg:justify-start">
               <Link href="/introduction">
                 <button
@@ -238,19 +238,20 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 w-full">
             {publikasiData
-              .sort((a, b) => {
-                // Helper to normalize nulls -> put them at the bottom
-                const safeNum = (val: number | null | undefined) =>
-                  val == null ? -Infinity : val;
+              // .sort((a, b) => {
+              //   // Helper to normalize nulls -> put them at the bottom
+              //   const safeNum = (val: number | null | undefined) =>
+              //     val == null ? -Infinity : val;
 
-                if (safeNum(b.tahun) !== safeNum(a.tahun)) {
-                  return safeNum(b.tahun) - safeNum(a.tahun);
-                }
-                if (safeNum(b.bulan) !== safeNum(a.bulan)) {
-                  return safeNum(b.bulan) - safeNum(a.bulan);
-                }
-                return safeNum(b.hari) - safeNum(a.hari);
-              })
+              //   if (safeNum(b.tahun) !== safeNum(a.tahun)) {
+              //     return safeNum(b.tahun) - safeNum(a.tahun);
+              //   }
+              //   if (safeNum(b.bulan) !== safeNum(a.bulan)) {
+              //     return safeNum(b.bulan) - safeNum(a.bulan);
+              //   }
+              //   return safeNum(b.hari) - safeNum(a.hari);
+              // })   
+              .filter(item => [3, 7, 12].includes(item.id))
               .slice(0, 3)
               .map((item, index) => (
                 <div
@@ -279,10 +280,11 @@ export default function Home() {
                       />
                       <div className="mt-4 sm:mt-5">
                         <Link
-                          href={`/research/${item.judul
-                            .toLowerCase()
-                            .replace(/ /g, "-")
-                            .replace(/[^\w-]+/g, "")}`}
+                          // href={`/research/${item.judul
+                          //   .toLowerCase()
+                          //   .replace(/ /g, "-")
+                          //   .replace(/[^\w-]+/g, "")}`}
+                          href={item.url}
                           className="inline-block px-3 sm:px-4 py-1 sm:py-2 text-xs sm:text-sm font-medium text-[var(--text-alt-1)] bg-[var(--background-3)] rounded hover:bg-[var(--background-3-hover)] transition"
                         >
                           Selengkapnya
