@@ -1,7 +1,20 @@
+"use client";
 import Image from "next/image";
-import { headOfLab, members } from "@/data/members";
+import { penelitiData } from "@/data/ndata";
+import { useRouter } from "next/navigation";
+import { setNavigationState } from "@/utils/navigation-state";
 
 export default function Members() {
+  const router = useRouter();
+  const headOfLab = penelitiData.find((p) => p.jabatan_lab == "head of lab");
+  if (!headOfLab) return null;
+  const members = penelitiData.filter((p) => p.jabatan_lab == "member lab");
+
+  const goToPublications = (id: number) => {
+    setNavigationState({ selectedResearchers: [id] });
+    router.push("/publications");
+  };
+
   return (
     <div className="max-w-7xl mx-auto px-4 py-12 space-y-10">
       <section className="mb-16">
@@ -15,10 +28,10 @@ export default function Members() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-4">
-            <a
-              href={`/research/recent-research?researcher=${headOfLab.researcherSlug}`}
+            <div
+              onClick={() => goToPublications(headOfLab.id)}
               className="group relative flex flex-col items-center p-6 rounded-3xl bg-gradient-to-br from-white to-blue-50 shadow-lg hover:shadow-xl transition-all duration-300 ease-out hover:-translate-y-2"
-              key={headOfLab.researcherSlug}
+              key={headOfLab.id}
             >
               <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-100 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
@@ -26,7 +39,7 @@ export default function Members() {
                 <div className="absolute inset-0 bg-blue-100 rounded-full transform rotate-45 scale-95 group-hover:scale-105 transition-transform duration-300" />
                 <Image
                   src={headOfLab.image}
-                  alt={headOfLab.name}
+                  alt={headOfLab.nama}
                   width={128}
                   height={128}
                   className="relative z-10 rounded-full border-4 border-white object-cover transform group-hover:scale-105 transition-transform duration-300"
@@ -35,21 +48,21 @@ export default function Members() {
 
               <div className="text-center space-y-3 relative z-10">
                 <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
-                  {headOfLab.name}
+                  {headOfLab.nama}
                   <span className="block mt-1 text-sm font-medium text-blue-500">
-                    {headOfLab.rank}
+                    {headOfLab.jabatan_akademik}
                   </span>
                 </h3>
 
                 <div className="flex items-center justify-center space-x-2">
-                  <p className="text-sm text-gray-600 font-medium">
-                    {headOfLab.field}
-                  </p>
+                  {/* <p className="text-sm text-gray-600 font-medium">
+                    {headOfLab.bidang}
+                  </p> */}
                 </div>
 
                 <div className="opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
                   <span className="inline-flex items-center text-blue-600 text-sm font-medium">
-                    View Recent Research
+                    Tampilkan Publikasi
                     <svg
                       className="w-4 h-4 ml-1"
                       fill="none"
@@ -66,7 +79,7 @@ export default function Members() {
                   </span>
                 </div>
               </div>
-            </a>
+            </div>
           </div>
         </div>
       </section>
@@ -80,11 +93,11 @@ export default function Members() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-4">
-            {members.filter((member) => member.researcherSlug !== headOfLab.researcherSlug).map((member) => (
-              <a
-                href={`/research/recent-research?researcher=${member.researcherSlug}`}
+            {members.map((member) => (
+              <div
+                onClick={() => goToPublications(member.id)}
                 className="group relative flex flex-col items-center p-6 rounded-3xl bg-gradient-to-br from-white to-blue-50 shadow-lg hover:shadow-xl transition-all duration-300 ease-out hover:-translate-y-2"
-                key={member.researcherSlug}
+                key={member.id}
               >
                 <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-blue-100 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
@@ -92,7 +105,7 @@ export default function Members() {
                   <div className="absolute inset-0 bg-blue-100 rounded-full transform rotate-45 scale-95 group-hover:scale-105 transition-transform duration-300" />
                   <Image
                     src={member.image}
-                    alt={member.name}
+                    alt={member.nama}
                     width={128}
                     height={128}
                     className="relative z-10 rounded-full border-4 border-white object-cover transform group-hover:scale-105 transition-transform duration-300"
@@ -101,16 +114,16 @@ export default function Members() {
 
                 <div className="text-center space-y-3 relative z-10">
                   <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
-                    {member.name}
+                    {member.nama}
                     <span className="block mt-1 text-sm font-medium text-blue-500">
-                      {member.rank}
+                      {member.jabatan_akademik}
                     </span>
                   </h3>
 
                   <div className="flex items-center justify-center space-x-2">
-                    <p className="text-sm text-gray-600 font-medium">
-                      {member.field}
-                    </p>
+                    {/* <p className="text-sm text-gray-600 font-medium">
+                      {member.bidang}
+                    </p> */}
                   </div>
 
                   <div className="opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
@@ -132,7 +145,7 @@ export default function Members() {
                     </span>
                   </div>
                 </div>
-              </a>
+              </div>
             ))}
           </div>
         </div>

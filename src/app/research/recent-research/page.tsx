@@ -79,7 +79,9 @@ function RecentResearchContent() {
           className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white shadow-md text-gray-700 focus:ring-2 focus:ring-blue-400"
           value={selectedResearcher.slug}
           onChange={(e) =>
-            router.push(`/research/recent-research/${e.target.value}`)
+            router.push(
+              `/research/recent-research?researcher=${e.target.value}`
+            )
           }
           title="Pilih Peneliti"
         >
@@ -256,7 +258,7 @@ function RecentResearchContent() {
         </div>
 
         {/* Sections */}
-        <div className="w-3/4">
+        <div className="w-full lg:w-3/4">
           {filteredResearch.map((item, index) => (
             <section
               key={item.id}

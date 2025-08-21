@@ -10,7 +10,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
+import { getNavigationState } from "@/utils/navigation-state";
 
 type ProcessedPublication = {
   journalPapers: Array<{
@@ -244,6 +245,50 @@ export default function Publications() {
         )
     );
   };
+
+  useEffect(() => {
+    const state = getNavigationState();
+
+    if (state?.selectedResearchers) {
+      setSelectedResearchers((prev) => {
+        const newSet = new Set(prev);
+        state.selectedResearchers.forEach((id) => {
+          if (newSet.has(id)) {
+            newSet.delete(id);
+          } else {
+            newSet.add(id);
+          }
+        });
+        return newSet;
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    const anyFilterActive =
+      searchQuery.trim() !== "" ||
+      selectedTypes.size > 0 ||
+      selectedResearchers.size > 0;
+
+    if (anyFilterActive) {
+      // expand all years
+      setExpandedYears(new Set(Object.keys(processedData)));
+
+      // expand all categories for all years
+      const newCategories: { [year: string]: Set<PublicationType> } = {};
+      Object.keys(processedData).forEach((year) => {
+        newCategories[year] = new Set([
+          "journalPapers",
+          "internationalConferences",
+        ]);
+      });
+      setExpandedCategories(newCategories);
+    } else {
+      // collapse everything if no filter
+      setExpandedYears(new Set());
+      setExpandedCategories({});
+    }
+  }, [searchQuery, selectedTypes, selectedResearchers, processedData]);
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
