@@ -200,18 +200,6 @@ export default function Home() {
             {/* <button className="mt-3 sm:mt-4 px-4 sm:px-5 py-2 text-sm sm:text-base bg-[var(--background-3)] text-[var(--text-alt-1)] rounded-lg hover:bg-[var(--background-3-hover)] transition">
               Jelajahi
             </button> */}
-            <div className="flex-1 flex justify-center order-1 md:order-2 mb-6 md:mb-0">
-              <div className="w-full max-w-md lg:max-w-lg">
-                <Image
-                  src="/hpc-dike.jpg"
-                  alt="Home"
-                  width={600}
-                  height={400}
-                  className="rounded-xl shadow-lg object-cover w-full h-auto"
-                  priority
-                />
-              </div>
-            </div>
             <div className="w-full flex justify-center items-center lg:items-left lg:justify-start">
               <Link href="/introduction">
                 <button
@@ -225,6 +213,18 @@ export default function Home() {
             </div>
           </div>
 
+          <div className="flex-1 flex justify-center order-1 md:order-2 mb-6 md:mb-0">
+            <div className="w-full max-w-md lg:max-w-lg">
+              <Image
+                src="/hpc-dike.jpg"
+                alt="Home"
+                width={600}
+                height={400}
+                className="rounded-xl shadow-lg object-cover w-full h-auto"
+                priority
+              />
+            </div>
+          </div>
           
         </div>
       </section>
