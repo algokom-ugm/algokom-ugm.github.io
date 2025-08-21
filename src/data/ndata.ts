@@ -250,14 +250,14 @@ export const publikasiData: Publikasi[] = [
     "judul": "A Comprehensive Approach for Detecting and Handling MitM-ARP Spoofing Attacks",
     "deskripsi": "Nowadays, most public facilities provide free internet access to support daily activities. These public internet facilities are open to anyone, making them prone to attacks. Communications between the host and router can become attack targets because they may contain important data traffic, such as credentials. Most of these public internet facilities still use Internet Protocol (IP) version 4 in their IP addressing, and attackers can use Address Resolution Protocol (ARP) weaknesses as an opportunity. Man-in- the-Middle ARP (MitM-ARP) spoofing attacks can be launched to sniff credentials in host and router communication. We propose a comprehensive approach to solving the problem, which comprises two separate solution parts applied to the host and the router. In the host, we employ a combination of ping Round-Trip Time (RTT) anomaly detection, the SendARP function, static entry, and ping confirmation to detect …",
     "abstrak": "",
-    "image": "/kr1.jpg",
+    "image": "/mitm.jpg",
     "tahun": 2025,
     "bulan": 7,
     "hari": 2,
     "tipe": "makalah jurnal",
     "arxiv": false,
     "url": "https://ieeexplore.ieee.org/abstract/document/11062892/",
-    "valid_terkini": false
+    "valid_terkini": true
   },
   {
     "id": 3,
@@ -269,14 +269,14 @@ export const publikasiData: Publikasi[] = [
     "judul": "FaultNet-Sim: A C++ simulator for failure-prone wireless sensor networks",
     "deskripsi": "Wireless sensor networks (WSNs) are crucial for various real-life applications, from environmental and health monitoring systems to home and industrial automation. However, these networks face challenges in failure-prone environments, where sensor nodes must conserve energy while ensuring data reliability. We introduce FaultNet-Sim, a multithreaded simulator that facilitates the development of optimization strategies for balancing energy consumption and data reliability by tuning data transfer intervals in WSNs. The simulator can model different failure conditions and various time-division multiple access (TDMA)-based scheduling techniques, allowing users to analyze trade-offs between data loss and energy. With customizable parameters, FaultNet-Sim is a valuable tool for researchers looking to improve the resilience and efficiency of WSNs in real-world applications.",
     "abstrak": "",
-    "image": "/kr1.jpg",
+    "image": "/faultnetsim.jpg",
     "tahun": 2025,
     "bulan": 7,
     "hari": 1,
     "tipe": "makalah jurnal",
     "arxiv": false,
     "url": "https://www.sciencedirect.com/science/article/pii/S2665963825000363",
-    "valid_terkini": false
+    "valid_terkini": true
   },
   {
     "id": 4,
@@ -287,14 +287,14 @@ export const publikasiData: Publikasi[] = [
     "judul": "Trust Decay-Based Temporal Learning for Dynamic Recommender Systems with Concept Drift Adaptation",
     "deskripsi": "Modeling temporal dynamics in recommendation systems is essential for capturing drifts in user preferences over time, particularly under conditions of data sparsity and non-stationarity. In this study, we propose a novel framework, Trust Decay-based Temporal Learning (TDTL), which integrates trust-region optimization, temporal regularization, and drift-aware adaptation to enhance the stability and adaptability of matrix factorization models. A key contribution of TDTL is the incorporation of bias-aware prediction and interaction-specific confidence weighting, which enables the model to capture rating tendencies and filter out noisy updates based on user-item frequency. TDTL also employs a BiGRU-based autoencoder to detect and refine temporal drift in user latent factors. Extensive experiments on nine benchmark datasets from diverse domains, including technology, health, entertainment, and social platforms …",
     "abstrak": "",
-    "image": "/kr1.jpg",
+    "image": "/tdtl.jpg",
     "tahun": 2025,
     "bulan": 6,
     "hari": 25,
     "tipe": "makalah jurnal",
     "arxiv": false,
     "url": "https://ieeexplore.ieee.org/abstract/document/11050419/",
-    "valid_terkini": false
+    "valid_terkini": true
   },
   {
     "id": 5,

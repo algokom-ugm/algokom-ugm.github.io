@@ -190,7 +190,7 @@ export default function Home() {
             </p>
             <p className="text-base sm:text-lg text-justify lg:text-left">
               Di bawah arahan{" "}
-              <b>Muhammad Alfian Amrizal, B.Eng., M.I.S., Ph.D.</b>,
+              <b>Muhammad Alfian Amrizal, Ph.D.</b>,
               Laboratorium Algoritma dan Komputasi menjadi wadah kolaborasi
               antara dosen dan mahasiswa yang memiliki antusiasme untuk
               merancang berbagai solusi inovatif yang ditujukan untuk menjawab
@@ -238,21 +238,22 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 w-full">
             {publikasiData
-              // .sort((a, b) => {
-              //   // Helper to normalize nulls -> put them at the bottom
-              //   const safeNum = (val: number | null | undefined) =>
-              //     val == null ? -Infinity : val;
+              .filter((entry) => entry.valid_terkini === true)
+              .sort((a, b) => {
+                // Helper to normalize nulls -> put them at the bottom
+                const safeNum = (val: number | null | undefined) =>
+                  val == null ? -Infinity : val;
 
-              //   if (safeNum(b.tahun) !== safeNum(a.tahun)) {
-              //     return safeNum(b.tahun) - safeNum(a.tahun);
-              //   }
-              //   if (safeNum(b.bulan) !== safeNum(a.bulan)) {
-              //     return safeNum(b.bulan) - safeNum(a.bulan);
-              //   }
-              //   return safeNum(b.hari) - safeNum(a.hari);
-              // })   
-              .filter(item => [3, 7, 12].includes(item.id))
+                if (safeNum(b.tahun) !== safeNum(a.tahun)) {
+                  return safeNum(b.tahun) - safeNum(a.tahun);
+                }
+                if (safeNum(b.bulan) !== safeNum(a.bulan)) {
+                  return safeNum(b.bulan) - safeNum(a.bulan);
+                }
+                return safeNum(b.hari) - safeNum(a.hari);
+              })   
               .slice(0, 3)
+              // .filter(item => [3, 7, 12].includes(item.id))
               .map((item, index) => (
                 <div
                   key={index}
@@ -271,13 +272,21 @@ export default function Home() {
 
                     {/* spacer + gambar fix posisi */}
                     <div className="mt-auto">
-                      <Image
+                      {/* <Image
                         src={item.image}
                         alt={item.judul}
                         width={240}
                         height={160}
                         className="rounded-lg object-cover w-full h-40 mt-4 bg-gray-200"
-                      />
+                      /> */}
+                      <div className="relative w-full h-40 mt-4 bg-gray-200 rounded-lg overflow-hidden">
+                        <Image
+                          src={item.image}
+                          alt={item.judul}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
                       <div className="mt-4 sm:mt-5">
                         <Link
                           // href={`/research/${item.judul
