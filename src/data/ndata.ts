@@ -2,11 +2,11 @@
 
 export type JabatanLab = "head of lab" | "member lab";
 export type JabatanAkademik =
-  | "guru besar"
-  | "lektor kepala"
-  | "lektor"
-  | "asisten ahli"
-  | "tenaga pengajar";
+  | "Guru Besar"
+  | "Lektor Kepala"
+  | "Lektor"
+  | "Asisten Ahli"
+  | "Tenaga Pengajar";
 export type TipePublikasi =
   | "makalah jurnal"
   | "konferensi internasional"
@@ -50,135 +50,147 @@ export interface Publikasi {
 export const penelitiData: Peneliti[] = [
   {
     id: 1,
-    nama: "Dr. Muhammad Alfian Amrizal, B.Eng., M.I.S., Ph.D.",
+    nama: "Muhammad Alfian Amrizal, B.Eng., M.I.S., Ph.D.",
     slug: "muhammad-alfian-amrizal",
     jabatan_lab: "head of lab",
-    jabatan_akademik: "tenaga pengajar",
+    jabatan_akademik: "Lektor",
     bidang_minat:
       "interest 1, interest 2, interest 3, interest 4, interest 5, interest 6",
     image: "/alfian_amrizal.jpg",
-    url_scholar: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
-    url_scopus: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
+    url_scholar: "https://scholar.google.com/citations?user=DDt1D5sAAAAJ",
+    url_scopus: "https://www.scopus.com/authid/detail.uri?authorId=55599451800",
   },
   {
     id: 2,
-    nama: "Prof. Dr.-Ing. MHD Reza M.I. Pulungan, S.Si., M.Sc.",
+    nama: "Prof. Dr.-Ing. Mhd. Reza M. I. Pulungan, S.Si., M.Sc.",
     slug: "reza-pulungan",
     jabatan_lab: "member lab",
-    jabatan_akademik: "guru besar",
+    jabatan_akademik: "Guru Besar",
     bidang_minat:
       "interest 1, interest 2, interest 3, interest 4, interest 5, interest 6",
     image: "/reza_pulungan.jpg",
-    url_scholar: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
-    url_scopus: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
+    url_scholar: "https://scholar.google.com/citations?user=SA9SiogAAAAJ",
+    url_scopus: "https://www.scopus.com/authid/detail.uri?authorId=8940034700",
   },
-  {
-    id: 3,
-    nama: "Dr. Anny Kartika Sari, S.Si., M.Sc., Ph.D.",
-    slug: "anny-kartika-sari",
-    jabatan_lab: "member lab",
-    jabatan_akademik: "lektor kepala",
-    bidang_minat:
-      "interest 1, interest 2, interest 3, interest 4, interest 5, interest 6",
-    image: "/anny_kartika_sari.jpg",
-    url_scholar: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
-    url_scopus: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
-  },
+  // {
+  //   id: 3,
+  //   nama: "Dr. Anny Kartika Sari, S.Si., M.Sc., Ph.D.",
+  //   slug: "anny-kartika-sari",
+  //   jabatan_lab: "member lab",
+  //   jabatan_akademik: "Lektor Kepala",
+  //   bidang_minat:
+  //     "interest 1, interest 2, interest 3, interest 4, interest 5, interest 6",
+  //   image: "/anny_kartika_sari.jpg",
+  //   url_scholar: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
+  //   url_scopus: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
+  // },
   {
     id: 4,
-    nama: "Dr. Nur Rokhman, S.Si., M.Kom.",
+    nama: "Nur Rokhman, S.Si., M.Kom., Dr.",
     slug: "nur-rokhman",
     jabatan_lab: "member lab",
-    jabatan_akademik: "lektor kepala",
+    jabatan_akademik: "Lektor Kepala",
     bidang_minat:
       "interest 1, interest 2, interest 3, interest 4, interest 5, interest 6",
     image: "/nur_rokhman.jpg",
-    url_scholar: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
-    url_scopus: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
+    url_scholar: "https://scholar.google.com/citations?user=W58AawoAAAAJ",
+    url_scopus: "https://www.scopus.com/authid/detail.uri?authorId=57090804800",
   },
   {
     id: 5,
-    nama: "Dr. Suprapto, Drs., M.I.Kom.",
+    nama: "Suprapto, Drs., M.I.Kom. Dr.",
     slug: "suprapto",
     jabatan_lab: "member lab",
-    jabatan_akademik: "lektor kepala",
+    jabatan_akademik: "Guru Besar",
     bidang_minat:
       "interest 1, interest 2, interest 3, interest 4, interest 5, interest 6",
     image: "/suprapto.jpg",
-    url_scholar: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
-    url_scopus: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
+    url_scholar: "https://scholar.google.com/citations?user=45tQaL0AAAAJ",
+    url_scopus: "https://www.scopus.com/authid/detail.uri?authorId=60029478600",
   },
   {
     id: 6,
-    nama: "Dr. Wahyono, S.Kom., Ph.D.",
+    nama: "Wahyono, S.Kom, Ph.D.",
     slug: "wahyono",
     jabatan_lab: "member lab",
-    jabatan_akademik: "lektor kepala",
+    jabatan_akademik: "Lektor Kepala",
     bidang_minat:
       "interest 1, interest 2, interest 3, interest 4, interest 5, interest 6",
     image: "/wahyono.jpg",
-    url_scholar: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
-    url_scopus: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
+    url_scholar: "https://scholar.google.com/citations?user=agr1gDAAAAAJ",
+    url_scopus: "https://www.scopus.com/authid/detail.uri?authorId=55617659300",
   },
   {
     id: 7,
-    nama: "Dr. Agus Sihabuddin, S.Si., M.Kom.",
+    nama: "Agus Sihabuddin, S.Si., M.Kom., Dr.",
     slug: "agus-sihabuddin",
     jabatan_lab: "member lab",
-    jabatan_akademik: "lektor",
+    jabatan_akademik: "Lektor Kepala",
     bidang_minat:
       "interest 1, interest 2, interest 3, interest 4, interest 5, interest 6",
     image: "/agus_sihabuddin.jpg",
-    url_scholar: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
-    url_scopus: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
+    url_scholar: "https://scholar.google.com/citations?user=4ZZDIHIAAAAJ",
+    url_scopus: "https://www.scopus.com/authid/detail.uri?authorId=57190935235",
   },
   {
     id: 8,
-    nama: "Dr. Janoe Hendarto, Drs., M.I.Kom.",
+    nama: "Janoe Hendarto, Drs., M.I.Kom.",
     slug: "janoe-hendarto",
     jabatan_lab: "member lab",
-    jabatan_akademik: "lektor",
+    jabatan_akademik: "Lektor",
     bidang_minat:
       "interest 1, interest 2, interest 3, interest 4, interest 5, interest 6",
     image: "/janoe_hendarto.jpg",
-    url_scholar: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
-    url_scopus: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
+    url_scholar: "https://scholar.google.com/citations?user=V1CMKMAAAAAJ",
+    url_scopus: "",
   },
   {
     id: 9,
-    nama: "Dr. Moh. Edi Wibowo, S.Kom., M.Kom., Ph.D.",
+    nama: "Moh. Edi Wibowo,S.Kom., M.Kom, Ph.D.",
     slug: "edi-wibowo",
     jabatan_lab: "member lab",
-    jabatan_akademik: "lektor",
+    jabatan_akademik: "Lektor",
     bidang_minat:
       "interest 1, interest 2, interest 3, interest 4, interest 5, interest 6",
     image: "/edi_wibowo.jpg",
-    url_scholar: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
-    url_scopus: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
+    url_scholar: "https://scholar.google.com/citations?user=kt9I7zwAAAAJ",
+    url_scopus: "https://www.scopus.com/authid/detail.uri?authorId=54975678100",
   },
   {
     id: 10,
     nama: "Erwin Eko Wahyudi, S.Kom., M.Cs.",
     slug: "erwin-eko-wahyudi",
     jabatan_lab: "member lab",
-    jabatan_akademik: "asisten ahli",
+    jabatan_akademik: "Lektor",
     bidang_minat:
       "interest 1, interest 2, interest 3, interest 4, interest 5, interest 6",
     image: "/eko_wahyudi.jpg",
-    url_scholar: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
-    url_scopus: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
+    url_scholar: "https://scholar.google.com/citations?user=AUZNvTYAAAAJ",
+    url_scopus: "https://www.scopus.com/authid/detail.uri?authorId=57205061170",
   },
   {
     id: 11,
-    nama: "Dr. Faizal Makhrus, S.Kom., M.Sc., Ph.D.",
+    nama: "Faizal Makhrus,S.Kom., M.Sc., Ph.D",
     slug: "faizal-makhrus",
     jabatan_lab: "member lab",
-    jabatan_akademik: "tenaga pengajar",
+    jabatan_akademik: "Lektor",
     bidang_minat:
       "interest 1, interest 2, interest 3, interest 4, interest 5, interest 6",
     image: "/faizal_makhrus.jpg",
-    url_scholar: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
-    url_scopus: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
+    url_scholar: "https://scholar.google.com/citations?user=Kos0vPcAAAAJ",
+    url_scopus: "https://www.scopus.com/authid/detail.uri?authorId=57427178300",
+  },
+  {
+    id: 12,
+    nama: "Novera Istiqomah, S.T., M.T., Ph.D.",
+    slug: "novera-istiqomah",
+    jabatan_lab: "member lab",
+    jabatan_akademik: "Tenaga Pengajar",
+    bidang_minat:
+      "interest 1, interest 2, interest 3, interest 4, interest 5, interest 6",
+    image: "/novera_istiqomah.jpg",
+    url_scholar: "https://scholar.google.com/citations?user=1RkE0_4AAAAJ",
+    url_scopus: "",
   },
 ];
 
