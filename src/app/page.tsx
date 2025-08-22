@@ -12,8 +12,6 @@ import {
   faCheckCircle,
   faLock,
   faProjectDiagram,
-  faBrain,
-  faSearch,
   faCogs,
   faLaptopCode,
   faShapes,
@@ -24,9 +22,6 @@ import {
   faCamera,
   faPalette,
   faChartBar,
-  faDatabase,
-  faPlayCircle,
-  faRobot,
 } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 
@@ -189,17 +184,28 @@ export default function Home() {
               pengembangan penelitian di bidang algoritma serta komputasi.
             </p>
             <p className="text-base sm:text-lg text-justify lg:text-left">
-              Dikepalai oleh{" "}
-              <b>Muhammad Alfian Amrizal, Ph.D.</b>,
-              Laboratorium Algoritma dan Komputasi menjadi wadah kolaborasi
-              antara dosen dan mahasiswa yang memiliki antusiasme untuk
-              merancang berbagai solusi inovatif yang ditujukan untuk menjawab
-              permasalahan nyata di 
+              Dikepalai oleh <b>Muhammad Alfian Amrizal, Ph.D.</b>, Laboratorium
+              Algoritma dan Komputasi menjadi wadah kolaborasi antara dosen dan
+              mahasiswa yang memiliki antusiasme untuk merancang berbagai solusi
+              inovatif yang ditujukan untuk menjawab permasalahan nyata di
               masyarakat.
             </p>
             {/* <button className="mt-3 sm:mt-4 px-4 sm:px-5 py-2 text-sm sm:text-base bg-[var(--background-3)] text-[var(--text-alt-1)] rounded-lg hover:bg-[var(--background-3-hover)] transition">
               Jelajahi
             </button> */}
+
+            <div className="flex-1 justify-center order-1 md:order-2 mb-6 md:mb-0 lg:hidden block">
+              <div className="w-full max-w">
+                <Image
+                  src="/hpc-dike.jpg"
+                  alt="Home"
+                  width={600}
+                  height={400}
+                  className="rounded-xl shadow-lg object-cover w-full h-auto max-h-[400px]"
+                  priority
+                />
+              </div>
+            </div>
             <div className="w-full flex justify-center items-center lg:items-left lg:justify-start">
               <Link href="/introduction">
                 <button
@@ -213,7 +219,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex-1 flex justify-center order-1 md:order-2 mb-6 md:mb-0">
+          <div className="flex-1 flex justify-center order-1 md:order-2 mb-6 md:mb-0 lg:block hidden">
             <div className="w-full max-w-md lg:max-w-lg">
               <Image
                 src="/hpc-dike.jpg"
@@ -225,7 +231,6 @@ export default function Home() {
               />
             </div>
           </div>
-          
         </div>
       </section>
 
@@ -251,7 +256,7 @@ export default function Home() {
                   return safeNum(b.bulan) - safeNum(a.bulan);
                 }
                 return safeNum(b.hari) - safeNum(a.hari);
-              })   
+              })
               .slice(0, 3)
               // .filter(item => [3, 7, 12].includes(item.id))
               .map((item, index) => (

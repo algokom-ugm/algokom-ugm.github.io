@@ -198,25 +198,18 @@ export default function LayoutWrapper({
               Beranda
             </Link>
 
-            <div>
-              <p className="px-3 py-2 font-semibold text-gray-700">
-                Tentang Kami
-              </p>
-              <div className="pl-6 space-y-2">
-                <Link
-                  href="/introduction"
-                  className="block px-3 py-2 rounded-md hover:bg-blue-50 hover:text-blue-600 transition"
-                >
-                  Profil Lab
-                </Link>
-                <Link
-                  href="/introduction/members"
-                  className="block px-3 py-2 rounded-md hover:bg-blue-50 hover:text-blue-600 transition"
-                >
-                  Anggota
-                </Link>
-              </div>
-            </div>
+            <Link
+              href="/introduction"
+              className="block px-3 py-2 rounded-md hover:bg-blue-50 hover:text-blue-600 transition"
+            >
+              Profil Lab
+            </Link>
+            <Link
+              href="/introduction/members"
+              className="block px-3 py-2 rounded-md hover:bg-blue-50 hover:text-blue-600 transition"
+            >
+              Anggota
+            </Link>
 
             {/* <div>
               <p className="px-3 py-2 font-semibold text-gray-700">
@@ -251,12 +244,12 @@ export default function LayoutWrapper({
               Publikasi
             </Link>
 
-            <Link
+            {/* <Link
               href="/news-and-events"
               className="block px-3 py-2 rounded-md hover:bg-blue-50 hover:text-blue-600 transition"
             >
               Berita & Kegiatan
-            </Link>
+            </Link> */}
 
             <Link
               href="/contact"

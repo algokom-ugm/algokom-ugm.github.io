@@ -2,7 +2,7 @@
 
 import { Suspense, useEffect, useState } from "react";
 import Image from "next/image";
-import { publikasiData, penelitiData } from "@/data/ndata";
+import { proyekData, penelitiData } from "@/data/ndata";
 import { useSearchParams, useRouter } from "next/navigation";
 
 function RecentResearchContent() {
@@ -18,7 +18,7 @@ function RecentResearchContent() {
     penelitiData.find((r) => r.slug === researcherSlugParam) || penelitiData[0];
 
   // Prepare publications for the selected researcher
-  const filteredResearch = publikasiData
+  const filteredResearch = proyekData
     .filter((pub) => pub.id_peneliti.includes(selectedResearcher.id))
     .sort((a, b) => {
       const dateA = a.tahun
