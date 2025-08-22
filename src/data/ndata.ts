@@ -84,8 +84,7 @@ export const penelitiData: Peneliti[] = [
     slug: "reza-pulungan",
     jabatan_lab: "member lab",
     jabatan_akademik: "Guru Besar",
-    bidang_minat:
-      "Probabilistic Verification",
+    bidang_minat: "Probabilistic Verification",
     image: "/reza_pulungan.jpg",
     url_scholar: "https://scholar.google.com/citations?user=SA9SiogAAAAJ",
     url_scopus: "https://www.scopus.com/authid/detail.uri?authorId=8940034700",
@@ -108,8 +107,7 @@ export const penelitiData: Peneliti[] = [
     slug: "nur-rokhman",
     jabatan_lab: "member lab",
     jabatan_akademik: "Lektor Kepala",
-    bidang_minat:
-      "Outlier Detection",
+    bidang_minat: "Outlier Detection",
     image: "/nur_rokhman.jpg",
     url_scholar: "https://scholar.google.com/citations?user=W58AawoAAAAJ",
     url_scopus: "https://www.scopus.com/authid/detail.uri?authorId=57090804800",
@@ -120,8 +118,7 @@ export const penelitiData: Peneliti[] = [
     slug: "suprapto",
     jabatan_lab: "member lab",
     jabatan_akademik: "Guru Besar",
-    bidang_minat:
-      "",
+    bidang_minat: "",
     image: "/suprapto.jpg",
     url_scholar: "https://scholar.google.com/citations?user=45tQaL0AAAAJ",
     url_scopus: "https://www.scopus.com/authid/detail.uri?authorId=60029478600",
@@ -144,8 +141,7 @@ export const penelitiData: Peneliti[] = [
     slug: "agus-sihabuddin",
     jabatan_lab: "member lab",
     jabatan_akademik: "Lektor Kepala",
-    bidang_minat:
-      "Time Series Computation",
+    bidang_minat: "Time Series Computation",
     image: "/agus_sihabuddin.jpg",
     url_scholar: "https://scholar.google.com/citations?user=4ZZDIHIAAAAJ",
     url_scopus: "https://www.scopus.com/authid/detail.uri?authorId=57190935235",
@@ -168,8 +164,7 @@ export const penelitiData: Peneliti[] = [
     slug: "edi-wibowo",
     jabatan_lab: "member lab",
     jabatan_akademik: "Lektor",
-    bidang_minat:
-      "AI Model Improvement/Adaptation, Computer Graphics",
+    bidang_minat: "AI Model Improvement/Adaptation, Computer Graphics",
     image: "/edi_wibowo.jpg",
     url_scholar: "https://scholar.google.com/citations?user=kt9I7zwAAAAJ",
     url_scopus: "https://www.scopus.com/authid/detail.uri?authorId=54975678100",
@@ -180,8 +175,7 @@ export const penelitiData: Peneliti[] = [
     slug: "erwin-eko-wahyudi",
     jabatan_lab: "member lab",
     jabatan_akademik: "Lektor",
-    bidang_minat:
-      "Cryptography, Fully Homomorphic Encryption",
+    bidang_minat: "Cryptography, Fully Homomorphic Encryption",
     image: "/eko_wahyudi.jpg",
     url_scholar: "https://scholar.google.com/citations?user=AUZNvTYAAAAJ",
     url_scopus: "https://www.scopus.com/authid/detail.uri?authorId=57205061170",
@@ -192,8 +186,7 @@ export const penelitiData: Peneliti[] = [
     slug: "faizal-makhrus",
     jabatan_lab: "member lab",
     jabatan_akademik: "Lektor",
-    bidang_minat:
-      "Modelling and Optimization, Numerical Methods",
+    bidang_minat: "Modelling and Optimization, Numerical Methods",
     image: "/faizal_makhrus.jpg",
     url_scholar: "https://scholar.google.com/citations?user=Kos0vPcAAAAJ",
     url_scopus: "https://www.scopus.com/authid/detail.uri?authorId=57427178300",
@@ -280,7 +273,7 @@ export const proyekData: Proyek[] = [
     id_bidang_penelitian: 9,
     id_peneliti: [4],
     judul:
-      "Multi-Aspect Polarity Lexicon for Indonesian StudeMULTI-ASPECT POLARITY LEXICON FOR INDONESIAN STUDENT FEEDBACK EXTRACTION",
+      "MULTI-ASPECT POLARITY LEXICON FOR INDONESIAN STUDENT FEEDBACK EXTRACTION",
     deskripsi:
       "Lexicon ini dirancang untuk mengatasi keterbatasan lexicon umum seperti VADER, SentiWordNet, dan InSet yang tidak mampu menganalisis sentimen secara spesifik pada aspek-aspek pendidikan. Dengan pendekatan yang efisien dan tidak memerlukan pelabelan data yang mahal, model ini mampu mengekstraksi sentimen terhadap enam aspek penting: pedagogik, profesional, kepribadian, sosial, fasilitas, dan lainnya. Lexicon ini disusun berdasarkan data nyata dari umpan balik lebih dari 29 ribu entri mahasiswa dan melewati proses validasi oleh pakar.",
     abstrak: "",
@@ -297,8 +290,7 @@ export const proyekData: Proyek[] = [
     id: 5,
     id_bidang_penelitian: 9,
     id_peneliti: [5],
-    judul:
-      "-",
+    judul: "-",
     deskripsi:
       "Penelitian ini menggabungkan dua pendekatan ekstraksi fitur, yakni Multi-Texton Co-Occurrence Descriptor (MTCD) dan Binarized Statistical Image Features (BSIF), dalam satu model terintegrasi.Pendekatan ini memadukan kekuatan representasi tekstur halus dari MTCD dan fitur statistik dari BSIF, lalu disempurnakan dengan teknik penggabungan fitur dan reduksi dimensi. Penelitian ini menguji tiga teknik kombinasi fitur dengan pendekatan Principal Component Analysis (PCA), dan menunjukkan bahwa kombinasi awal sebelum normalisasi menghasilkan performa terbaik. Proses klasifikasi dilakukan menggunakan Support Vector Machine (SVM) dengan kernel linear dan radial basis function (RBF), menunjukkan ketangguhan metode terhadap berbagai variasi motif.",
     abstrak: "",

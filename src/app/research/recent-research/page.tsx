@@ -3,23 +3,24 @@
 import { Suspense, useEffect, useState } from "react";
 import Image from "next/image";
 import { proyekData, penelitiData } from "@/data/ndata";
-import { useSearchParams, useRouter } from "next/navigation";
+// import { useSearchParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 function RecentResearchContent() {
-  const searchParams = useSearchParams();
+  // const searchParams = useSearchParams();
   const router = useRouter();
 
   const [activeSection, setActiveSection] = useState(0);
-  const [isOpen, setIsOpen] = useState(false);
+  // const [isOpen, setIsOpen] = usesState(false);
 
   // Read researcher from query (?researcher=slug)
-  const researcherSlugParam = searchParams.get("researcher");
-  const selectedResearcher =
-    penelitiData.find((r) => r.slug === researcherSlugParam) || penelitiData[0];
+  // const researcherSlugParam = searchParams.get("researcher");
+  // const selectedResearcher =
+  //   penelitiData.find((r) => r.slug === researcherSlugParam) || penelitiData[0];
 
   // Prepare publications for the selected researcher
   const filteredResearch = proyekData
-    .filter((pub) => pub.id_peneliti.includes(selectedResearcher.id))
+    // .filter((pub) => pub.id_peneliti.includes(selectedResearcher.id))
     .sort((a, b) => {
       const dateA = a.tahun
         ? new Date(
@@ -45,15 +46,15 @@ function RecentResearchContent() {
         .toLowerCase()
         .replace(/ /g, "-")
         .replace(/[^\w-]+/g, ""),
-      researcherSlug: selectedResearcher.slug,
+      // researcherSlug: selectedResearcher.slug,
       url: pub.url,
     }));
 
   // Reset state on researcher change
-  useEffect(() => {
-    setActiveSection(0);
-    if (typeof window !== "undefined") window.scrollTo(0, 0);
-  }, [selectedResearcher.slug]);
+  // useEffect(() => {
+  //   setActiveSection(0);
+  //   if (typeof window !== "undefined") window.scrollTo(0, 0);
+  // }, [selectedResearcher.slug]);
 
   // Track scroll to highlight left nav
   useEffect(() => {
@@ -74,10 +75,10 @@ function RecentResearchContent() {
         </h2>
       </div>
       {/* MOBILE/TABLET researcher selector (hidden on lg) */}
-      <div className="block lg:hidden my-6 px-6">
+      {/* <div className="block lg:hidden my-6 px-6">
         <select
           className="w-full px-4 py-3 rounded-lg border border-gray-300 bg-white shadow-md text-gray-700 focus:ring-2 focus:ring-blue-400"
-          value={selectedResearcher.slug}
+          // value={selectedResearcher.slug}
           onChange={(e) =>
             router.push(
               `/research/recent-research?researcher=${e.target.value}`
@@ -91,7 +92,7 @@ function RecentResearchContent() {
             </option>
           ))}
         </select>
-      </div>
+      </div> */}
       <div className="w-full flex flex-row">
         {/* (DESKTOP) Left rail: Section dots + researcher selector */}
         <div className="sticky top-30 lg:block z-50 w-1/4 hidden h-fit">
@@ -147,7 +148,7 @@ function RecentResearchContent() {
           </div>
 
           {/* Researcher selector (query param) */}
-          <div className="relative w-full max-w-md mt-8">
+          {/* <div className="relative w-full max-w-md mt-8">
             <select
               className="absolute inset-0 opacity-0 cursor-pointer"
               value={selectedResearcher.slug}
@@ -254,7 +255,7 @@ function RecentResearchContent() {
                 </ul>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* Sections */}
