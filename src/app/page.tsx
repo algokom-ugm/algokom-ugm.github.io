@@ -189,13 +189,13 @@ export default function Home() {
               pengembangan penelitian di bidang algoritma serta komputasi.
             </p>
             <p className="text-base sm:text-lg text-justify lg:text-left">
-              Di bawah arahan{" "}
+              Dikepalai oleh{" "}
               <b>Muhammad Alfian Amrizal, Ph.D.</b>,
               Laboratorium Algoritma dan Komputasi menjadi wadah kolaborasi
               antara dosen dan mahasiswa yang memiliki antusiasme untuk
               merancang berbagai solusi inovatif yang ditujukan untuk menjawab
-              permasalahan nyata di bidang kesehatan, pendidikan, maupun
-              masyarakat secara luas.
+              permasalahan nyata di 
+              masyarakat.
             </p>
             {/* <button className="mt-3 sm:mt-4 px-4 sm:px-5 py-2 text-sm sm:text-base bg-[var(--background-3)] text-[var(--text-alt-1)] rounded-lg hover:bg-[var(--background-3-hover)] transition">
               Jelajahi
@@ -294,6 +294,8 @@ export default function Home() {
                           //   .replace(/ /g, "-")
                           //   .replace(/[^\w-]+/g, "")}`}
                           href={item.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="inline-block px-3 sm:px-4 py-1 sm:py-2 text-xs sm:text-sm font-medium text-[var(--text-alt-1)] bg-[var(--background-3)] rounded hover:bg-[var(--background-3-hover)] transition"
                         >
                           Selengkapnya

@@ -134,29 +134,29 @@ export default function Introduction() {
             <span className="font-semibold">Metode Formal</span> — verifikasi, model checking,
             proving, dan teori bahasa pemrograman.
           </li>
-          <li>
+          {/* <li>
             <span className="font-semibold">Algoritma</span> — pengembangan, desain, dan analisis
             kompleksitas algoritmik.
-          </li>
-          <li>
+          </li> */}
+          {/* <li>
             <span className="font-semibold">Optimasi</span> — teori dan aplikasi optimasi untuk
             persoalan komputasi dan dunia nyata.
-          </li>
-          <li>
+          </li> */}
+          {/* <li>
             <span className="font-semibold">Model-model Komputasi</span> — grid, cloud, parallel
             computing, dan model fraktal.
-          </li>
+          </li> */}
           <li>
             <span className="font-semibold">Sains Komputasional</span> — penerapan komputasi pada
             sains (fisika, kimia, biologi), matematika, dan metode numerik.
           </li>
-          <li>
+          {/* <li>
             <span className="font-semibold">Pemodelan, Analisis, &amp; Correctness Sistem Reaktif</span> — metode/algoritma untuk menjamin kesahihan sistem reaktif.
-          </li>
-          <li>
+          </li> */}
+          {/* <li>
             <span className="font-semibold">Keamanan Data</span> — kriptografi, kriptosistem, dan
             kriptanalisis.
-          </li>
+          </li> */}
 
           {/* Tambahan dari daftar yang belum tercantum */}
           <li>
@@ -191,7 +191,7 @@ export default function Introduction() {
       </section>
 
       {/* Bidang Terkait (dari daftar kedua 1–4) */}
-      <section className="space-y-3">
+      {/* <section className="space-y-3">
         <h3 className="text-2xl font-semibold">Bidang Terkait</h3>
         <ol className="list-decimal pl-6 space-y-2">
           <li>
@@ -211,7 +211,7 @@ export default function Introduction() {
             sinkronisasi data dari berbagai sumber heterogen.
           </li>
         </ol>
-      </section>
+      </section> */}
     </div>
   );
 }

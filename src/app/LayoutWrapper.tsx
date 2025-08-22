@@ -143,14 +143,14 @@ export default function LayoutWrapper({
               </ul>
             </li> */}
 
-            <li>
+            {/* <li>
               <Link
                 href="/research/recent-research?researcher=alfian-amrizal"
                 className="hover:text-[var(--text-1-hover)]"
               >
                 Proyek Lab
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link
                 href="/publications"
@@ -238,12 +238,12 @@ export default function LayoutWrapper({
               </div>
             </div> */}
 
-            <Link
+            {/* <Link
               href="/research/recent-research?researcher=alfian-amrizal"
               className="block px-3 py-2 rounded-md hover:bg-blue-50 hover:text-blue-600 transition"
             >
-              Penelitian Terkini
-            </Link>
+              Proyek Lab
+            </Link> */}
             <Link
               href="/publications"
               className="block px-3 py-2 rounded-md hover:bg-blue-50 hover:text-blue-600 transition"
@@ -350,7 +350,7 @@ export default function LayoutWrapper({
                       href="/introduction"
                       className="text-sm hover:text-[var(--text-1-hover)] transition-colors"
                     >
-                      Tentang Kami
+                      Profil Lab
                     </Link>
                   </li>
                   <li>

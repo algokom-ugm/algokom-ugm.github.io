@@ -68,7 +68,7 @@ export const penelitiData: Peneliti[] = [
     jabatan_lab: "member lab",
     jabatan_akademik: "Guru Besar",
     bidang_minat:
-      "interest 1, interest 2, interest 3, interest 4, interest 5, interest 6",
+      "",
     image: "/reza_pulungan.jpg",
     url_scholar: "https://scholar.google.com/citations?user=SA9SiogAAAAJ",
     url_scopus: "https://www.scopus.com/authid/detail.uri?authorId=8940034700",
@@ -80,7 +80,7 @@ export const penelitiData: Peneliti[] = [
   //   jabatan_lab: "member lab",
   //   jabatan_akademik: "Lektor Kepala",
   //   bidang_minat:
-  //     "interest 1, interest 2, interest 3, interest 4, interest 5, interest 6",
+  //     "",
   //   image: "/anny_kartika_sari.jpg",
   //   url_scholar: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
   //   url_scopus: "https://scholar.google.com/citations?user=U5gEXhcAAAAJ&hl=en",
@@ -104,7 +104,7 @@ export const penelitiData: Peneliti[] = [
     jabatan_lab: "member lab",
     jabatan_akademik: "Guru Besar",
     bidang_minat:
-      "interest 1, interest 2, interest 3, interest 4, interest 5, interest 6",
+      "",
     image: "/suprapto.jpg",
     url_scholar: "https://scholar.google.com/citations?user=45tQaL0AAAAJ",
     url_scopus: "https://www.scopus.com/authid/detail.uri?authorId=60029478600",
@@ -128,7 +128,7 @@ export const penelitiData: Peneliti[] = [
     jabatan_lab: "member lab",
     jabatan_akademik: "Lektor Kepala",
     bidang_minat:
-      "interest 1, interest 2, interest 3, interest 4, interest 5, interest 6",
+      "",
     image: "/agus_sihabuddin.jpg",
     url_scholar: "https://scholar.google.com/citations?user=4ZZDIHIAAAAJ",
     url_scopus: "https://www.scopus.com/authid/detail.uri?authorId=57190935235",
@@ -140,7 +140,7 @@ export const penelitiData: Peneliti[] = [
     jabatan_lab: "member lab",
     jabatan_akademik: "Lektor",
     bidang_minat:
-      "interest 1, interest 2, interest 3, interest 4, interest 5, interest 6",
+      "",
     image: "/janoe_hendarto.jpg",
     url_scholar: "https://scholar.google.com/citations?user=V1CMKMAAAAAJ",
     url_scopus: "",
@@ -164,7 +164,7 @@ export const penelitiData: Peneliti[] = [
     jabatan_lab: "member lab",
     jabatan_akademik: "Lektor",
     bidang_minat:
-      "interest 1, interest 2, interest 3, interest 4, interest 5, interest 6",
+      "Kriptografi, Fully Homomorphic Encryption",
     image: "/eko_wahyudi.jpg",
     url_scholar: "https://scholar.google.com/citations?user=AUZNvTYAAAAJ",
     url_scopus: "https://www.scopus.com/authid/detail.uri?authorId=57205061170",
@@ -188,7 +188,7 @@ export const penelitiData: Peneliti[] = [
     jabatan_lab: "member lab",
     jabatan_akademik: "Tenaga Pengajar",
     bidang_minat:
-      "interest 1, interest 2, interest 3, interest 4, interest 5, interest 6",
+      "",
     image: "/novera_istiqomah.jpg",
     url_scholar: "https://scholar.google.com/citations?user=1RkE0_4AAAAJ",
     url_scopus: "",
