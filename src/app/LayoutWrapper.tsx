@@ -35,7 +35,7 @@ export default function LayoutWrapper({
       {/* Navbar */}
       <nav
         ref={navbarRef}
-        className="absolute shadow-md px-6 py-2 bg-transparent w-full z-50 h-20 flex items-center justify-between"
+        className="absolute shadow-md px-6 py-2 bg-transparent w-full z-50 h-20 flex items-center justify-center"
       >
         <div className="max-w-7xl flex items-center justify-between relative w-full">
           {/* Logo + Text */}
