@@ -290,7 +290,8 @@ export const proyekData: Proyek[] = [
     id: 5,
     id_bidang_penelitian: 9,
     id_peneliti: [5],
-    judul: "-",
+    judul:
+      "Classification of Batik Motifs Using Multi-Texton Co-Occurrence Descriptor and Binarized Statistical Image Features",
     deskripsi:
       "Penelitian ini menggabungkan dua pendekatan ekstraksi fitur, yakni Multi-Texton Co-Occurrence Descriptor (MTCD) dan Binarized Statistical Image Features (BSIF), dalam satu model terintegrasi.Pendekatan ini memadukan kekuatan representasi tekstur halus dari MTCD dan fitur statistik dari BSIF, lalu disempurnakan dengan teknik penggabungan fitur dan reduksi dimensi. Penelitian ini menguji tiga teknik kombinasi fitur dengan pendekatan Principal Component Analysis (PCA), dan menunjukkan bahwa kombinasi awal sebelum normalisasi menghasilkan performa terbaik. Proses klasifikasi dilakukan menggunakan Support Vector Machine (SVM) dengan kernel linear dan radial basis function (RBF), menunjukkan ketangguhan metode terhadap berbagai variasi motif.",
     abstrak: "",
