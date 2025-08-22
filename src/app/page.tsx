@@ -78,7 +78,7 @@ export default function Home() {
             <div className="relative flex flex-col items-center lg:items-start text-center lg:text-left space-y-4 md:space-y-6">
               <div className="absolute hidden lg:-left-8 top-0 h-full w-1 bg-gradient-to-b from-blue-400 to-purple-600 rounded-full" />
 
-              <h1 className="text-4xl  md:text-5xl lg:text-6xl font-bold leading-tight bg-gradient-to-r from-blue-400 to-purple-300 bg-clip-text text-transparent">
+              <h1 className="text-4xl lg:text-6xl font-bold leading-tight bg-gradient-to-r from-blue-400 to-purple-300 bg-clip-text text-transparent">
                 Lab Algoritma & Komputasi
               </h1>
 

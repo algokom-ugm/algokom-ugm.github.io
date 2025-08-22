@@ -111,6 +111,14 @@ export default function LayoutWrapper({
                 Anggota Lab
               </Link>
             </li>
+            <li>
+              <Link
+                href="/research/recent-research"
+                className="hover:text-[var(--text-1-hover)]"
+              >
+                Proyek Lab
+              </Link>
+            </li>
 
             {/* Penelitian Dropdown */}
             {/* <li className="relative group cursor-pointer">
@@ -203,6 +211,12 @@ export default function LayoutWrapper({
               className="block px-3 py-2 rounded-md hover:bg-blue-50 hover:text-blue-600 transition"
             >
               Profil Lab
+            </Link>
+            <Link
+              href="/research/recent-research"
+              className="block px-3 py-2 rounded-md hover:bg-blue-50 hover:text-blue-600 transition"
+            >
+              Proyek Lab
             </Link>
             <Link
               href="/introduction/members"
