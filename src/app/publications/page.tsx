@@ -10,7 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import { getNavigationState } from "@/utils/navigation-state";
 
 type ProcessedPublication = {
@@ -290,6 +290,37 @@ export default function Publications() {
     }
   }, [searchQuery, selectedTypes, selectedResearchers, processedData]);
 
+  // ⬇️ Add refs for both <details>
+  const typesRef = useRef<HTMLDetailsElement>(null);
+  const researchersRef = useRef<HTMLDetailsElement>(null);
+
+  // ⬇️ Close on outside click / touch / Escape
+  useEffect(() => {
+    const closeIfOutside = (event: Event) => {
+      const t = event.target as Node;
+      [typesRef.current, researchersRef.current].forEach((el) => {
+        if (el && el.hasAttribute("open") && t && !el.contains(t)) {
+          el.removeAttribute("open");
+        }
+      });
+    };
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        typesRef.current?.removeAttribute("open");
+        researchersRef.current?.removeAttribute("open");
+      }
+    };
+
+    // pointerdown works for mouse + touch
+    document.addEventListener("pointerdown", closeIfOutside);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", closeIfOutside);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, []);
+
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
       <header className="text-center mb-12">
@@ -309,68 +340,71 @@ export default function Publications() {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
-        <div className="flex flex-row gap-4">
-          <details className="relative w-84 text-gray-700">
-            <summary className="flex justify-between items-center p-3 bg-white border border-gray-300 rounded-lg shadow-sm cursor-pointer hover:ring-1 hover:ring-indigo-500 transition-all">
-              <span className="font-medium">
-                {selectedTypes.size > 0
-                  ? `${selectedTypes.size} jenis dipilih`
-                  : "Filter Jenis"}
-              </span>
-              <span className="ml-2 text-gray-400 transition-transform duration-200 [&_details[open]>summary>&]:rotate-180">
-                &#9662;
-              </span>
-            </summary>
-            <div className="absolute left-0 mt-1 w-full max-h-64 overflow-y-auto bg-white border border-gray-300 rounded-lg shadow-lg z-50 p-2">
-              {[
-                ["journalPapers", "Makalah Jurnal"],
-                ["internationalConferences", "Konferensi Internasional"],
-              ].map(([type, label]) => (
-                <label
-                  key={type}
-                  className="flex items-center space-x-2 p-2 rounded hover:bg-indigo-50 cursor-pointer transition"
-                >
-                  <input
-                    type="checkbox"
-                    className="form-checkbox h-4 w-4 text-indigo-600"
-                    checked={selectedTypes.has(type as PublicationType)}
-                    onChange={() => toggleType(type as PublicationType)}
-                  />
-                  <span className="text-gray-700">{label}</span>
-                </label>
-              ))}
-            </div>
-          </details>
+          <div className="flex flex-row gap-4">
+            {/* Filter Jenis */}
+            <details ref={typesRef} className="relative w-84 text-gray-700">
+              <summary className="flex justify-between items-center p-3 bg-white border border-gray-300 rounded-lg shadow-sm cursor-pointer hover:ring-1 hover:ring-indigo-500 transition-all">
+                <span className="font-medium">
+                  {selectedTypes.size > 0
+                    ? `${selectedTypes.size} jenis dipilih`
+                    : "Filter Jenis"}
+                </span>
+                <span className="ml-2 text-gray-400 transition-transform duration-200 [&_details[open]>summary>&]:rotate-180">
+                  &#9662;
+                </span>
+              </summary>
+              <div className="absolute left-0 mt-1 w-full max-h-64 overflow-y-auto bg-white border border-gray-300 rounded-lg shadow-lg z-50 p-2">
+                {[
+                  ["journalPapers", "Makalah Jurnal"],
+                  ["internationalConferences", "Konferensi Internasional"],
+                ].map(([type, label]) => (
+                  <label
+                    key={type}
+                    className="flex items-center space-x-2 p-2 rounded hover:bg-indigo-50 cursor-pointer transition"
+                  >
+                    <input
+                      type="checkbox"
+                      className="form-checkbox h-4 w-4 text-indigo-600"
+                      checked={selectedTypes.has(type as PublicationType)}
+                      onChange={() => toggleType(type as PublicationType)}
+                    />
+                    <span className="text-gray-700">{label}</span>
+                  </label>
+                ))}
+              </div>
+            </details>
 
-          <details className="relative w-84 text-gray-700">
-            <summary className="flex justify-between items-center p-3 bg-white border border-gray-300 rounded-lg shadow-sm cursor-pointer hover:ring-1 hover:ring-indigo-500 transition-all">
-              <span className="font-medium">
-                {selectedResearchers.size > 0
-                  ? `${selectedResearchers.size} peneliti dipilih`
-                  : "Filter Peneliti"}
-              </span>
-              <span className="ml-2 text-gray-400 transition-transform duration-200 [&_details[open]>summary>&]:rotate-180">
-                &#9662;
-              </span>
-            </summary>
-            <div className="absolute left-0 mt-1 w-full max-h-64 overflow-y-auto bg-white border border-gray-300 rounded-lg shadow-lg z-50 p-2">
-              {penelitiData.map((peneliti) => (
-                <label
-                  key={peneliti.id}
-                  className="flex items-center space-x-2 p-2 rounded hover:bg-indigo-50 cursor-pointer transition"
-                >
-                  <input
-                    type="checkbox"
-                    className="form-checkbox h-4 w-4 text-indigo-600"
-                    checked={selectedResearchers.has(peneliti.id)}
-                    onChange={() => toggleResearcher(peneliti.id)}
-                  />
-                  <span className="text-gray-700">{peneliti.nama}</span>
-                </label>
-              ))}
+            {/* Filter Peneliti */}
+            <details ref={researchersRef} className="relative w-84 text-gray-700">
+              <summary className="flex justify-between items-center p-3 bg-white border border-gray-300 rounded-lg shadow-sm cursor-pointer hover:ring-1 hover:ring-indigo-500 transition-all">
+                <span className="font-medium">
+                  {selectedResearchers.size > 0
+                    ? `${selectedResearchers.size} peneliti dipilih`
+                    : "Filter Peneliti"}
+                </span>
+                <span className="ml-2 text-gray-400 transition-transform duration-200 [&_details[open]>summary>&]:rotate-180">
+                  &#9662;
+                </span>
+              </summary>
+              <div className="absolute left-0 mt-1 w-full max-h-64 overflow-y-auto bg-white border border-gray-300 rounded-lg shadow-lg z-50 p-2">
+                {penelitiData.map((peneliti) => (
+                  <label
+                    key={peneliti.id}
+                    className="flex items-center space-x-2 p-2 rounded hover:bg-indigo-50 cursor-pointer transition"
+                  >
+                    <input
+                      type="checkbox"
+                      className="form-checkbox h-4 w-4 text-indigo-600"
+                      checked={selectedResearchers.has(peneliti.id)}
+                      onChange={() => toggleResearcher(peneliti.id)}
+                    />
+                    <span className="text-gray-700">{peneliti.nama}</span>
+                  </label>
+                ))}
             </div>
           </details>
         </div>
+
       </div>
 
       <div className="space-y-4">

@@ -1,3 +1,5 @@
+import PdfEmbed from "@/components/PdfEmbed";
+
 export default function Introduction() {
   return (
     <div className="max-w-7xl mx-auto px-4 py-12 space-y-10">
@@ -212,6 +214,14 @@ export default function Introduction() {
           </li>
         </ol>
       </section> */}
+
+       {/* ---- PDF VIEWER AT THE BOTTOM ---- */}
+      <section className="space-y-3">
+        <h3 className="text-2xl font-semibold">Dokumen Profil Lab</h3>
+
+        {/* Ensure the PDF exists at public/lab-guide.pdf */}
+        <PdfEmbed fileUrl="/profil_lab_ak.pdf" height="80vh" />
+      </section>
     </div>
   );
 }
