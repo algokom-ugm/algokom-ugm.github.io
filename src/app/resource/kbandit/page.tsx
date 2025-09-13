@@ -105,7 +105,7 @@ export default function Page() {
               <div className="flex items-baseline justify-between mb-3">
                 <h2 className="text-xl font-semibold">{b.name}</h2>
                 <span className="text-xs px-2 py-0.5 rounded-full bg-blue-50 text-blue-600 border border-blue-100">
-                  klik fotonya
+                  klik gambar
                 </span>
               </div>
 

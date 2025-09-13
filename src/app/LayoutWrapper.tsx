@@ -36,22 +36,22 @@ export function MobileDemoDropdown() {
         ${open ? "max-h-40 opacity-100" : "max-h-0 opacity-0"}`}
       >
         <Link
-          href="/resource/mdp"
-          className="block px-3 py-2 rounded-md hover:bg-blue-50 hover:text-blue-600 transition"
-        >
-          <span className="flex items-center gap-2">
-            <FontAwesomeIcon icon={faSitemap} />
-            Markov Decision Process
-          </span>
-        </Link>
-
-        <Link
           href="/resource/kbandit"
           className="block px-3 py-2 rounded-md hover:bg-blue-50 hover:text-blue-600 transition"
         >
           <span className="flex items-center gap-2">
             <FontAwesomeIcon icon={faDice} />
             k-Armed Bandit
+          </span>
+        </Link>
+
+        <Link
+          href="/resource/mdp"
+          className="block px-3 py-2 rounded-md hover:bg-blue-50 hover:text-blue-600 transition"
+        >
+          <span className="flex items-center gap-2">
+            <FontAwesomeIcon icon={faSitemap} />
+            Markov Decision Process
           </span>
         </Link>
       </div>
@@ -245,20 +245,20 @@ export default function LayoutWrapper({
               <ul className="absolute left-0 top-full hidden group-hover:block pt-2 space-y-2 bg-white shadow-lg rounded-lg w-64 text-black z-10">
                 <li>
                   <Link
-                    href="/resource/mdp"
-                    className="flex items-center gap-3 px-4 py-2 hover:bg-blue-100 rounded-lg"
-                  >
-                    <FontAwesomeIcon icon={faSitemap} />
-                    <span className="font-medium">Markov Decision Process</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link
                     href="/resource/kbandit"
                     className="flex items-center gap-3 px-4 py-2 hover:bg-blue-100 rounded-lg"
                   >
                     <FontAwesomeIcon icon={faDice} />
                     <span className="font-medium">k-Armed Bandit</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/resource/mdp"
+                    className="flex items-center gap-3 px-4 py-2 hover:bg-blue-100 rounded-lg"
+                  >
+                    <FontAwesomeIcon icon={faSitemap} />
+                    <span className="font-medium">Markov Decision Process</span>
                   </Link>
                 </li>
               </ul>
