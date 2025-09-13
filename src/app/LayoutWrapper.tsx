@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faTimes, faDice, faSitemap, faCaretRight } from "@fortawesome/free-solid-svg-icons";
 import {
   faMapMarkerAlt,
   faPhone,
@@ -150,6 +150,8 @@ export default function LayoutWrapper({
                 </li>
               </ul>
             </li> */}
+            
+            
 
             {/* <li>
               <Link
@@ -182,6 +184,36 @@ export default function LayoutWrapper({
               >
                 Kontak
               </Link>
+            </li>
+            <li className="relative group cursor-pointer">
+              <span className="flex items-center gap-2">
+                Resource
+                <FontAwesomeIcon
+                  icon={faCaretRight}
+                  className="transform transition-transform duration-300 group-hover:rotate-90"
+                />
+              </span>
+
+              <ul className="absolute left-0 top-full hidden group-hover:block pt-2 space-y-2 bg-white shadow-lg rounded-lg w-64 text-black z-10">
+                <li>
+                  <Link
+                    href="/resource/mdp"
+                    className="flex items-center gap-3 px-4 py-2 hover:bg-blue-100 rounded-lg"
+                  >
+                    <FontAwesomeIcon icon={faSitemap} />
+                    <span className="font-medium">Markov Decision Process</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/resource/kbandit"
+                    className="flex items-center gap-3 px-4 py-2 hover:bg-blue-100 rounded-lg"
+                  >
+                    <FontAwesomeIcon icon={faDice} />
+                    <span className="font-medium">k-Armed Bandit</span>
+                  </Link>
+                </li>
+              </ul>
             </li>
           </ul>
 
