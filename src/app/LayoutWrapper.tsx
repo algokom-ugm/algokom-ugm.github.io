@@ -3,13 +3,61 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faTimes, faDice, faSitemap, faCaretRight } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faTimes, faDice, faSitemap, faCaretRight, faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import {
   faMapMarkerAlt,
   faPhone,
   faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
 import { usePathname } from "next/navigation";
+
+export function MobileDemoDropdown() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="md:hidden">
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+        aria-controls="mobile-demo-sub"
+        className="w-full flex items-center justify-between px-3 py-2 rounded-md hover:bg-blue-50 hover:text-blue-600 transition"
+      >
+        <span className="font-medium">Resource</span>
+        <FontAwesomeIcon
+          icon={faCaretDown}
+          className={`transition-transform ${open ? "rotate-180" : ""}`}
+        />
+      </button>
+
+      <div
+        id="mobile-demo-sub"
+        className={`pl-4 mt-1 space-y-1 overflow-hidden transition-[max-height,opacity] duration-300
+        ${open ? "max-h-40 opacity-100" : "max-h-0 opacity-0"}`}
+      >
+        <Link
+          href="/resource/mdp"
+          className="block px-3 py-2 rounded-md hover:bg-blue-50 hover:text-blue-600 transition"
+        >
+          <span className="flex items-center gap-2">
+            <FontAwesomeIcon icon={faSitemap} />
+            Markov Decision Process
+          </span>
+        </Link>
+
+        <Link
+          href="/resource/kbandit"
+          className="block px-3 py-2 rounded-md hover:bg-blue-50 hover:text-blue-600 transition"
+        >
+          <span className="flex items-center gap-2">
+            <FontAwesomeIcon icon={faDice} />
+            k-Armed Bandit
+          </span>
+        </Link>
+      </div>
+    </div>
+  );
+}
 
 export default function LayoutWrapper({
   children,
@@ -303,6 +351,8 @@ export default function LayoutWrapper({
             >
               Kontak
             </Link>
+
+            <MobileDemoDropdown />
           </nav>
         </div>
       )}
