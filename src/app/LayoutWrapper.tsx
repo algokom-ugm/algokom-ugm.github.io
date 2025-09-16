@@ -44,7 +44,7 @@ export function MobileDemoDropdown() {
             k-Armed Bandit
           </span>
         </Link>
-
+{/* 
         <Link
           href="/resource/mdp"
           className="block px-3 py-2 rounded-md hover:bg-blue-50 hover:text-blue-600 transition"
@@ -53,7 +53,7 @@ export function MobileDemoDropdown() {
             <FontAwesomeIcon icon={faSitemap} />
             Markov Decision Process
           </span>
-        </Link>
+        </Link> */}
       </div>
     </div>
   );
@@ -253,13 +253,13 @@ export default function LayoutWrapper({
                   </Link>
                 </li>
                 <li>
-                  <Link
+                  {/* <Link
                     href="/resource/mdp"
                     className="flex items-center gap-3 px-4 py-2 hover:bg-blue-100 rounded-lg"
                   >
                     <FontAwesomeIcon icon={faSitemap} />
                     <span className="font-medium">Markov Decision Process</span>
-                  </Link>
+                  </Link> */}
                 </li>
               </ul>
             </li>
